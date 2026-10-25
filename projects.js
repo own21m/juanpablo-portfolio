@@ -1,4 +1,4 @@
-// Reviewed public repositories and verified local application captures. Static case studies work offline.
+// Repository-backed case studies and actual application captures.
 window.portfolioProjects = {
   "marvel-api": {
     "slug": "marvel-api",
@@ -492,123 +492,123 @@ window.portfolioProjects = {
   "recepy": {
     "slug": "recepy",
     "number": "06",
-    "title": "Recepy",
-    "category": "web",
-    "categoryLabel": "Web",
-    "description": "Una red social de recetas creada en equipo en 2021, recuperada con una nueva capa de diseño editorial.",
-    "focus": "Catálogo por categorías, fichas de ingredientes y preparación, formularios y publicación de recetas de demostración en el navegador.",
+    "title": "RECEPY Astra",
+    "category": "apps",
+    "categoryLabel": "Aplicaciones",
+    "description": "Una nueva aplicación de recetas con feed inmersivo, cocina guiada y una interfaz móvil desarrollada con React Native y Expo.",
+    "focus": "Descubrir recetas, adaptar ingredientes y porciones, cocinar paso a paso y convertir texto en recetas interactivas con datos guardados localmente.",
     "tags": [
-      "Next.js",
-      "React",
-      "Sass",
-      "Firebase / Auth0"
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "AsyncStorage"
     ],
-    "status": "Proyecto colaborativo · 2021 / nuevo diseño local",
-    "repoUrl": "https://github.com/own21m/recepy",
+    "status": "App multiplataforma · React Native / Expo · 2026",
+    "repoUrl": "https://github.com/own21m/recepy-astra",
     "demoUrl": null,
-    "credits": "Proyecto original de Juan Pablo Gutierrez Gutierrez, Esteban Perez Garzon y Cristian David Ramirez Vargas, estudiantes del Cefit en formación vinculada al SENA.",
-    "context": "Proyecto estudiantil colaborativo de 2021, recuperado como demo local. La nueva capa visual mantiene las rutas, las recetas, sus fotografías originales y los créditos del equipo.",
+    "credits": "RECEPY Astra es la nueva implementación de 2026, separada de Recepy Legacy. El proyecto original de 2021 fue creado por Juan Pablo Gutierrez Gutierrez, Esteban Perez Garzon y Cristian David Ramirez Vargas.",
+    "context": "Implementación nueva de 2026, independiente del repositorio histórico Recepy Legacy. Es un prototipo funcional con contenido social de demostración y persistencia local. Las capturas muestran su vista web en formato móvil, no una ejecución en iPhone o Android.",
     "images": [
       {
-        "src": "assets/projects/runtime-recepy-portada.webp",
-        "width": 795,
-        "height": 1170,
+        "src": "assets/projects/runtime-recepy-astra-feed-movil.webp",
+        "width": 390,
+        "height": 843,
         "kind": "screenshot",
-        "title": "Una nueva mesa para Recepy",
-        "caption": "Nueva portada editorial: marfil, tomate, oliva y las fotografías originales del proyecto. Captura de la versión local.",
-        "alt": "Portada renovada de Recepy con gran tipografía, una fotografía de pizza y el acceso al recetario."
+        "title": "Un feed pensado para el móvil",
+        "caption": "Captura real de la vista web móvil: fotografías a pantalla completa y acceso directo a la receta. El contenido del feed es de demostración.",
+        "alt": "Feed móvil de RECEPY Astra con rigatoni y burrata, el logo rojo y el botón Abrir receta."
       },
       {
-        "src": "assets/projects/runtime-recepy-recetario.webp",
-        "width": 795,
-        "height": 1170,
+        "src": "assets/projects/runtime-recepy-astra-ingredientes.webp",
+        "width": 390,
+        "height": 843,
         "kind": "screenshot",
-        "title": "Recetas para descubrir",
-        "caption": "Catálogo real de la demo local, con categorías y tarjetas fotográficas para explorar las recetas.",
-        "alt": "Recetario de Recepy con categorías y tarjetas de platos en el nuevo diseño editorial."
+        "title": "Ingredientes que se adaptan",
+        "caption": "La lista permite marcar ingredientes y ajustar sus cantidades: aquí el selector está en tres porciones. Captura real de la vista web móvil.",
+        "alt": "Panel de receta de RECEPY Astra con ingredientes, cantidades ajustadas y selector de tres porciones."
       },
       {
-        "src": "assets/projects/runtime-recepy-receta.webp",
-        "width": 795,
-        "height": 1170,
+        "src": "assets/projects/runtime-recepy-astra-cocina.webp",
+        "width": 390,
+        "height": 843,
         "kind": "screenshot",
-        "title": "Del ingrediente al paso a paso",
-        "caption": "Ficha de receta de la versión local: fotografía, ingredientes y preparación en una composición más clara.",
-        "alt": "Detalle de una receta de Recepy con fotografía, lista de ingredientes y pasos de preparación."
+        "title": "Cocinar, paso a paso",
+        "caption": "Instrucciones, ingredientes del paso y un temporizador de diez minutos listo para iniciar, dentro del modo cocina. Vista web móvil.",
+        "alt": "Segundo paso de cocina de RECEPY Astra: cocer rigatoni, temporizador y navegación entre los cuatro pasos."
       },
       {
-        "src": "assets/projects/runtime-recepy-movil.webp",
-        "width": 384,
-        "height": 831,
+        "src": "assets/projects/runtime-recepy-astra-comentarios.webp",
+        "width": 390,
+        "height": 843,
         "kind": "screenshot",
-        "title": "El recetario en el móvil",
-        "caption": "Vista real a 390 píxeles de ancho, con tarjetas en una columna y navegación compacta, sin desplazamiento horizontal.",
-        "alt": "Versión móvil de Recepy mostrando el encabezado, la introducción y la primera receta fotográfica."
+        "title": "Conversar alrededor de una receta",
+        "caption": "Un panel inferior reúne comentarios y respuestas sin abandonar el feed. Captura real con conversaciones de demostración; vista web móvil.",
+        "alt": "Panel móvil de comentarios de RECEPY Astra sobre el feed de recetas."
       },
       {
-        "src": "assets/projects/runtime-recepy-formulario.webp",
-        "width": 795,
-        "height": 1115,
+        "src": "assets/projects/runtime-recepy-astra-crear.webp",
+        "width": 390,
+        "height": 843,
         "kind": "screenshot",
-        "title": "Compartir una receta",
-        "caption": "Formulario de la demo local, con ingredientes, preparación y validación en la nueva identidad editorial.",
-        "alt": "Formulario de Recepy para compartir una receta, con campos e instrucciones en la paleta marfil y tomate."
+        "title": "Del texto a la receta",
+        "caption": "El analizador local organiza el texto del ejemplo en ingredientes y pasos para revisar antes de publicar en el dispositivo. Vista web móvil.",
+        "alt": "Revisión de receta en RECEPY Astra con título, siete ingredientes detectados y sección de preparación."
       },
       {
-        "src": "assets/projects/runtime-recepy-perfil.webp",
-        "width": 795,
-        "height": 1115,
+        "src": "assets/projects/runtime-recepy-astra-escritorio.webp",
+        "width": 2048,
+        "height": 1081,
         "kind": "screenshot",
-        "title": "La cocina de cada persona",
-        "caption": "Perfil de demostración con la misma tipografía, colores y controles del resto de Recepy.",
-        "alt": "Perfil de demostración de Recepy en la nueva interfaz editorial."
+        "title": "La misma receta, en pantalla amplia",
+        "caption": "La interfaz web se adapta al escritorio: el feed y la lista interactiva de ingredientes aparecen juntos. Captura real de la aplicación.",
+        "alt": "RECEPY Astra en escritorio, con publicación fotográfica a la izquierda y receta interactiva a la derecha."
       }
     ],
     "featured": true,
-    "question": "¿Cómo organizar una receta para que se pueda descubrir, leer y compartir?",
-    "overview": "Un recetario para descubrir platos, elegir categorías y leer ingredientes y preparación. La nueva versión combina marfil, tomate y oliva, tipografía editorial y tarjetas fotográficas, manteniendo el recorrido y la historia del proyecto original.",
+    "question": "¿Cómo pasar de descubrir una receta a cocinarla dentro de una misma experiencia?",
+    "overview": "RECEPY Astra combina un feed de fotos y video con recetas que se abren en paneles, ingredientes marcables y porciones ajustables. El modo cocina organiza la preparación paso a paso con temporizadores y progreso guardado. También convierte texto en una receta estructurada mediante un analizador local. Su interfaz sigue el tema del sistema, con superficies negras o beige y acentos rojos.",
     "highlights": [
-      "Exploración del catálogo mediante categorías de recetas.",
-      "Fichas que organizan ingredientes y pasos de preparación.",
-      "Formularios y publicación de recetas de demostración en el navegador."
+      "Feed móvil inmersivo, receta lateral y comentarios en un panel inferior.",
+      "Ingredientes, porciones y cocina guiada con temporizadores y progreso local.",
+      "Conversión de texto en recetas interactivas, con revisión y publicación de demostración en el dispositivo."
     ],
     "workflow": [
       {
-        "title": "Entrar a Recepy",
-        "description": "Presentar la identidad y las opciones de acceso del proyecto."
+        "title": "Descubrir en el feed",
+        "description": "Explorar publicaciones fotográficas y de video, o buscar recetas e ingredientes."
       },
       {
-        "title": "Elegir una categoría",
-        "description": "Explorar recetas organizadas por tipo de preparación."
+        "title": "Abrir la receta",
+        "description": "Revisar ingredientes, ajustar porciones y marcar lo que ya está preparado."
       },
       {
-        "title": "Leer una receta",
-        "description": "Reunir ingredientes y preparación en una ficha."
+        "title": "Cocinar paso a paso",
+        "description": "Seguir instrucciones y temporizadores mientras el progreso se conserva localmente."
       },
       {
-        "title": "Probar la publicación",
-        "description": "Crear contenido de demostración que se guarda en el navegador."
+        "title": "Convertir una idea",
+        "description": "Pegar una receta en texto, revisar la estructura detectada y preparar una publicación local."
       }
     ],
     "technologyRoles": [
       {
-        "name": "Next.js",
-        "role": "Organiza las páginas y la navegación de la aplicación."
+        "name": "React Native",
+        "role": "Compone una interfaz compartida entre las pantallas móviles y la vista web adaptable."
       },
       {
-        "name": "React",
-        "role": "Compone las vistas de catálogo, fichas y formularios."
+        "name": "Expo",
+        "role": "Permite ejecutar la app en móvil y web y aporta recursos multimedia, desenfoque y capacidades del dispositivo."
       },
       {
-        "name": "Sass",
-        "role": "Da forma a los estilos y la presentación de la interfaz."
+        "name": "TypeScript",
+        "role": "Define los modelos y la lógica del analizador local que transforma texto en ingredientes, pasos y tiempos."
       },
       {
-        "name": "Firebase / Auth0",
-        "role": "Forman parte de las dependencias de datos y acceso de la base original; la demo recuperada puede funcionar sin esos servicios."
+        "name": "AsyncStorage",
+        "role": "Conserva en el dispositivo las recetas, borradores, preferencias y el progreso de cocina."
       }
     ],
-    "learning": "Exploración de cómo una aplicación de contenido conecta navegación, formularios y una identidad visual compartida."
+    "learning": "Compartir una base de interfaz entre móvil y web, coordinar gestos y paneles y convertir recetas de texto en acciones de cocina, con un estado local consistente."
   },
   "brazo-robotico-gestos": {
     "slug": "brazo-robotico-gestos",

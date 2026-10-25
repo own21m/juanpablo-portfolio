@@ -1692,6 +1692,39 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,t
 #archive-count { margin-left:10px; font-family:var(--sans); font-size:9px; line-height:1.6; letter-spacing:.06em; color:var(--muted); }
 @media(max-width:380px){ .project-recepy-screens { gap:8px; padding-inline:12px; } }
 
+/* The current Astra case leads with real, uncropped mobile screens. */
+.project-cover--recepy-astra .astra-phone-stack {
+  position:absolute;
+  inset:34px 0 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(5px,1.2vw,14px);
+  padding:15px 20px 44px;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 50% 75%,#f22c3025,transparent 70%),#090909;
+}
+.project-cover--recepy-astra .astra-phone {
+  position:relative;
+  flex:0 1 auto;
+  display:block;
+  width:auto;
+  max-width:30%;
+  height:89%;
+  object-fit:contain;
+  border:1px solid #ffffff32;
+  border-radius:12px;
+  background:#000;
+  box-shadow:0 12px 20px #0009;
+}
+.project-cover--recepy-astra .astra-phone--1 { z-index:2; height:100%; }
+.project-cover--recepy-astra .astra-phone--2 { order:-1; transform:rotate(-5deg) translateY(8px); }
+.project-cover--recepy-astra .astra-phone--3 { transform:rotate(5deg) translateY(8px); }
+@media(max-width:380px) {
+  .project-cover--recepy-astra .astra-phone-stack { gap:7px; padding-inline:12px; }
+  .project-cover--recepy-astra .astra-phone { border-radius:8px; }
+}
+
 /* A cabinet of real sketches: photographic paper revealed through its negative. */
 .art-section{--art-frame:#a8a5b14a;--art-paper-black:#030304;display:block;position:relative;min-width:0;overflow:clip;color:var(--fg);background:var(--bg);isolation:isolate;scroll-margin-top:90px}
 .art-section::before{content:'';position:absolute;inset:0 7.2% auto;height:1px;background:linear-gradient(90deg,transparent,var(--line) 18%,var(--line) 45%,var(--red) 50%,var(--line) 55%,var(--line) 82%,transparent)}

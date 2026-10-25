@@ -4,6 +4,8 @@ Mi portfolio personal: ingeniería de software, arte, interfaces y visión por c
 
 Sitio estático en HTML, CSS, JavaScript y WebGL. Incluye 21 proyectos, nueve dibujos con revelación del original, un brazo robótico 3D articulado y una galería de tres videos del montaje.
 
+La ficha de RECEPY Astra enlaza la nueva app en React Native y Expo. Incluye seis capturas reales de su ejecución web, cinco en formato móvil: feed, ingredientes, cocina guiada, comentarios y revisión de recetas. El contenido social es de demostración y la persistencia de la app es local.
+
 ## Abrir en local
 
 Abre `index.html` en un navegador. Las fuentes, imágenes, videos y modelos funcionan sin conexión; no necesitas instalar dependencias ni iniciar un servidor. Los enlaces a GitHub y el correo sí utilizan sus aplicaciones correspondientes.
@@ -28,11 +30,11 @@ node tests/run.cjs
 
 Las pruebas cubren referencias locales, sintaxis, geometría, controles, tiempos de animación, foco, diálogos, pausa y movimiento reducido. Los dobles de DOM/WebGL permiten probar la lógica; no sustituyen una revisión visual en navegador ni una prueba real de GPU.
 
-## Desplegar después en Vercel
+## Configuración de Vercel
 
 Importa este repositorio con la raíz del proyecto en `.`. `vercel.json` declara el preset **Other**, sin instalación ni compilación y con la raíz como salida estática. No necesita variables de entorno ni servicios de backend. Consulta la [configuración oficial de Vercel](https://vercel.com/docs/project-configuration/vercel-json).
 
-Este repositorio queda preparado para ese paso; su creación no implica que el sitio ya esté desplegado.
+Las actualizaciones del repositorio pueden desplegarse mediante la integración de Git de Vercel.
 
 ## Contenido y movimiento
 
