@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" preserveAspectRatio="none">
+  <defs><filter id="ink-soft" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="9"/></filter></defs>
+  <g fill="#fff" filter="url(#ink-soft)">
+    <path d="M-60 157C11 67 101 119 181 67S326 43 411 101 549 119 632 58 791 24 866 79 1009 116 1102 54 1253 22 1324 77 1469 111 1541 54 1657 50 1682 146C1711 268 1567 337 1634 452S1634 636 1583 738 1690 906 1618 1028C1579 1099 1476 1048 1400 1121S1246 1169 1159 1109 1010 1091 935 1155 774 1179 689 1117 546 1086 450 1150 294 1168 209 1100 61 1125-20 1067C-101 1009 42 920-8 803S-54 622 13 533-20 362-54 279-97 204-60 157Z"/>
+    <ellipse cx="267" cy="61" rx="88" ry="29" transform="rotate(-7 267 61)"/>
+    <ellipse cx="1197" cy="38" rx="75" ry="24" transform="rotate(9 1197 38)"/>
+    <ellipse cx="1075" cy="1166" rx="91" ry="26" transform="rotate(-9 1075 1166)"/>
+  </g>
+</svg>

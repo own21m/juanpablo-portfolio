@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="chrome" x1="10" y1="5" x2="21" y2="27" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset=".2" stop-color="#787b82"/><stop offset=".39" stop-color="#fff"/><stop offset=".5" stop-color="#353439"/><stop offset=".62" stop-color="#ebecf0"/><stop offset=".84" stop-color="#7b7f87"/><stop offset="1" stop-color="#fff"/></linearGradient>
+    <linearGradient id="ruby" x1="14" y1="13" x2="18" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#ff647a"/><stop offset=".45" stop-color="#ff0030"/><stop offset="1" stop-color="#9f001c"/></linearGradient>
+  </defs>
+  <path d="M9 4h5.1L16 6.2 17.9 4H23v2h-4.2L17 8.1v15.8l1.8 2.1H23v2h-5.1L16 25.8 14.1 28H9v-2h4.2l1.8-2.1V8.1L13.2 6H9Z" fill="url(#chrome)" stroke="#252528" stroke-width="1.65" stroke-linejoin="round"/>
+  <path d="M9 4h5.1L16 6.2 17.9 4H23v2h-4.2L17 8.1v15.8l1.8 2.1H23v2h-5.1L16 25.8 14.1 28H9v-2h4.2l1.8-2.1V8.1L13.2 6H9Z" fill="none" stroke="#f1f2f5" stroke-width=".6" stroke-linejoin="round"/>
+  <path d="m16 12.3 2.4 3.7-2.4 3.7-2.4-3.7Z" fill="url(#ruby)" stroke="#ff647a" stroke-width=".55"/>
+  <path d="M16 8.5v3m0 9v3" stroke="#fff" stroke-width=".65"/>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 96 96" fill="none" role="img" aria-labelledby="favicon-title">
+  <title id="favicon-title">21 — Juanpablo</title>
+  <defs>
+    <linearGradient id="favicon-silver-21" x1="22" y1="13" x2="64" y2="81" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFAF5"/>
+      <stop offset=".23" stop-color="#D4D8D6"/>
+      <stop offset=".44" stop-color="#929B9C"/>
+      <stop offset=".47" stop-color="#F5F5EF"/>
+      <stop offset=".64" stop-color="#C8CDCA"/>
+      <stop offset=".82" stop-color="#AAB2B1"/>
+      <stop offset="1" stop-color="#EEEEEA"/>
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="20" fill="#080909"/>
+  <g fill="url(#favicon-silver-21)">
+    <path d="M12 32 19 21C23 16 29 13 36 13c13 0 20 9 19 19-1 9-8 14-15 20L25 66h18l9-9-3 22H12l1-11 22-22c6-6 11-10 11-16 0-5-4-9-10-9-8 0-12 5-14 11l-3 7-7-4v-3Z"/>
+    <path d="m57 30 14-16h7v54l7 6v5H57v-4l9-7V30l-7 5-2-5Z"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-opacity=".5" stroke-width=".65" stroke-linecap="square">
+    <path d="M21 22c4-5 9-7 15-7M15 76h31M74 17v49M61 76h20"/>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="52" viewBox="0 0 96 112">
+  <title>Mano cromada en perspectiva hacia la pantalla — link</title>
+  <defs>
+    <linearGradient id="hand-surface" x1="29" y1="69" x2="73" y2="76" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#444c59"/><stop offset=".12" stop-color="#f0f4f8"/><stop offset=".25" stop-color="#b5c0cb"/><stop offset=".36" stop-color="#505b69"/><stop offset=".48" stop-color="#141c28"/><stop offset=".57" stop-color="#c2ccd7"/><stop offset=".64" stop-color="#fdfefe"/><stop offset=".72" stop-color="#6d7887"/><stop offset=".88" stop-color="#202b3a"/><stop offset="1" stop-color="#a4b2c1"/>
+    </linearGradient>
+    <linearGradient id="finger-surface" x1="44" y1="22" x2="57" y2="25" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#222d3b"/><stop offset=".14" stop-color="#99a8b8"/><stop offset=".29" stop-color="#f5f8fb"/><stop offset=".43" stop-color="#c8d1db"/><stop offset=".58" stop-color="#3f4c5e"/><stop offset=".75" stop-color="#171f2b"/><stop offset=".91" stop-color="#8c9bad"/><stop offset="1" stop-color="#d2dce6"/>
+    </linearGradient>
+    <linearGradient id="folded-surface" x1="0" y1="0" x2="1" y2=".7">
+      <stop stop-color="#c0ccd8"/><stop offset=".14" stop-color="#eef4f9"/><stop offset=".28" stop-color="#6d7a8a"/><stop offset=".43" stop-color="#1e2937"/><stop offset=".57" stop-color="#d3dce5"/><stop offset=".64" stop-color="#fff"/><stop offset=".81" stop-color="#788697"/><stop offset="1" stop-color="#202c3e"/>
+    </linearGradient>
+    <linearGradient id="thumb-surface" x1="30" y1="54" x2="44" y2="78" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c7d2df"/><stop offset=".14" stop-color="#eff6fc"/><stop offset=".3" stop-color="#818fa0"/><stop offset=".47" stop-color="#253143"/><stop offset=".61" stop-color="#9babbc"/><stop offset=".7" stop-color="#ecf3f8"/><stop offset=".91" stop-color="#46576b"/><stop offset="1" stop-color="#172333"/>
+    </linearGradient>
+    <linearGradient id="nail" x1="44" y1="10" x2="51" y2="21" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b4a5d"/><stop offset=".24" stop-color="#9aabbe"/><stop offset=".4" stop-color="#d5e1eb"/><stop offset=".55" stop-color="#f0f6fb"/><stop offset=".77" stop-color="#7f91a6"/><stop offset="1" stop-color="#34465d"/>
+    </linearGradient>
+    <linearGradient id="red-edge" x1="59" y1="43" x2="70" y2="108" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff163b" stop-opacity="0"/><stop offset=".18" stop-color="#ff163b"/><stop offset=".47" stop-color="#ff0030"/><stop offset=".73" stop-color="#ff163b"/><stop offset="1" stop-color="#ff163b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="red-glint" x1="48" y1="44" x2="58" y2="89" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff163b" stop-opacity="0"/><stop offset=".43" stop-color="#ff163b"/><stop offset=".68" stop-color="#ff0030"/><stop offset="1" stop-color="#ff163b" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="palm-volume" cx=".3" cy=".23" r=".73"><stop stop-color="#f0f7ff" stop-opacity=".3"/><stop offset=".38" stop-color="#fff" stop-opacity="0"/><stop offset=".78" stop-color="#020612" stop-opacity=".2"/><stop offset="1" stop-color="#020612" stop-opacity=".5"/></radialGradient>
+    <radialGradient id="red-bounce"><stop stop-color="#ff163b" stop-opacity=".7"/><stop offset="1" stop-color="#ff163b" stop-opacity="0"/></radialGradient>
+    <path id="hand" d="M48 6C44.8 6 43 8.4 43.7 12.3L45.1 20.1L44.8 22.7L46 25.6L46.8 31L46.1 33.8L47.8 37.1L48 41.2L47 49.2C44.3 49.7 41.6 48.9 38.7 46.4C35.6 43.8 32 45 32.5 48.5L35.1 55.1L39.5 62.2C38.3 71.9 39 81 43.8 90L40 108C48.8 109.4 60.3 109.3 68 108L64.8 97.8C64 94.6 65.1 91.7 68.5 87C74.3 79.7 79 72 77.7 65.2L77.2 62.7C76.3 58.5 73.4 57.2 70.2 58.8L69.8 53.3C69.2 48.7 66.2 46.8 62.5 48.8L61.6 43.2C60.7 39.7 58.1 38.3 55.2 40.8L59.7 41.4L57.3 35.7L55.8 31.7L55.9 28.7L54.1 23.9L52.8 20.9L52.7 13.3C52.3 8.7 51 6 48 6Z"/>
+    <clipPath id="hand-clip"><use href="#hand"/></clipPath>
+  </defs>
+  <g>
+    <use href="#hand" fill="url(#hand-surface)" stroke="#08111e" stroke-width="1.5" stroke-linejoin="miter"/>
+    <g clip-path="url(#hand-clip)">
+      <ellipse cx="49" cy="83" rx="27" ry="31" fill="url(#palm-volume)"/>
+
+    <!-- Receding index: compressed phalanges, distant contact plane, near MCP. -->
+    <path d="M48 6C44.8 6 43 8.4 43.7 12.3L45.1 20.1L44.8 22.7L46 25.6L46.8 31L46.1 33.8L47.8 37.1L48 41.2L47 49.2L51 56L57 56L60.8 49.1L59.7 41.4L57.3 35.7L55.8 31.7L55.9 28.7L54.1 23.9L52.8 20.9L52.7 13.3C52.3 8.7 51 6 48 6Z" fill="url(#finger-surface)"/>
+    <path d="M45.2 11.9L45.7 9.6L47.4 8.8L49.3 9.2L50.6 11.5L51.3 16.2L50.4 17.7L47 18.5L45.6 17.3Z" fill="url(#nail)" stroke="#324d67" stroke-width=".55"/>
+    <path d="M45.9 11.4L46.7 10.1L48.6 10M46.6 17.2L48.4 17.7L50.3 16.9" fill="none" stroke="#f7fcff" stroke-width=".5"/>
+    <path d="M45.6 21.7L47.6 22.2L49.9 21.8L52.4 20.8M46 23.7L48.4 24.2L50.6 23.6L53.1 22.6M47.2 32L49 32.9L51.7 32.3L54.6 30.8M47.6 34.1L49.7 35L52.4 34.3L55.2 32.9M49.1 43.1L51.9 41.6L55.4 41.8L58 43.7M49.1 47L52.4 45.8L55.8 46.3L59 48.4M49.8 49.5L53.1 48.7L56.5 49.4" fill="none" stroke="#142c44" stroke-width=".65" stroke-linejoin="miter"/>
+    <path d="M46 20.9L48 21.3L51.8 20.2M47.8 31L50.2 31.7L53.6 30M49.5 42L52.4 40.7L55.5 41.2L57.8 42.7" fill="none" stroke="#edf8ff" stroke-width=".6"/>
+    <path d="M47.5 25.7L48.6 29.9M49.3 36.6L50.6 39.7M53.3 35.2L54.6 39M51.5 51.4L53.5 54.5" fill="none" stroke="#e7f4fe" stroke-width=".38" opacity=".75"/>
+
+
+    <!-- Dorsal knuckles step away in depth; the curled tips are occluded. -->
+    <path d="M56.3 42.4L58.8 40.9L60.3 42.4L61.2 46.7L62.3 51.2L62.3 55.6L61.1 60.2L59.2 62.3L56.6 61.8L55 59L54.7 54.7L53.7 50.3L54 46.7Z" fill="url(#folded-surface)" stroke="#152c43" stroke-width=".7"/>
+    <path d="M64.3 49.8L66.1 49.5L68.5 51.8L69.1 55.3L69.9 60.1L69.3 64.7L67.9 68.1L65.8 69.4L64.2 68.1L63.2 65.1L63.1 61.9L62.2 57.6L62.4 53Z" fill="url(#folded-surface)" stroke="#152c43" stroke-width=".7"/>
+    <path d="M71.7 60.5L73.6 59.8L75.9 61.9L76.7 65.2L76 69.2L74.4 73.4L71.5 77.7L69.7 78.7L68.9 76.4L70 73.4L71 69.1L70.8 65.3Z" fill="url(#folded-surface)" stroke="#152c43" stroke-width=".65"/>
+    <path d="M55.6 45.5L57.2 43.5L59.1 43.3L60.3 45.4M63.8 53.2L65.3 51.8L67.1 52.9L68 54.4M72 63.1L73.6 62L75 64" fill="none" stroke="#eef9ff" stroke-width=".65"/>
+    <path d="M54.8 50.3L56.7 51.4L59.1 50.9L61 51.5M55.3 53L57.8 54L60.8 53.3M63.6 58.9L65.7 59.4L68.3 58.5M64.2 61.2L66.2 61.9L68.4 61.3M71.7 67.6L73.7 68.2L75 67.7M71.9 70.1L73.4 70.2" fill="none" stroke="#172c43" stroke-width=".65"/>
+    <path d="M56.1 56.8L57.5 58.5L59.3 58M64.4 64.1L65.5 65.8L67.1 65M70.8 74.1L72.1 73.6" fill="none" stroke="#daeefa" stroke-width=".5"/>
+
+
+    <!-- Near wrist fans into the back of the hand; tendons converge in depth. -->
+    <path d="M44.8 90L47.3 78L47.5 66.6L49.9 56.3L53.6 56.2L51.4 69.4L51.3 82.3L49.4 96.9L48.5 107L44.2 107.4Z" fill="#d1e1ed" opacity=".19"/>
+    <path d="M57 57L60 58L59.2 70.6L61.1 85.1L60.8 99L64.8 107.8L59.5 108L57.3 96.4L57.7 83.4L56 70.8Z" fill="#08172a" opacity=".27"/>
+    <path d="M47 105.6L48.6 93.7L50.4 81L50.1 70.1L52.6 58.8M53.7 106.7L54.7 94.2L55.4 83.3L54.8 72.7L57.8 62.2M61.4 105.1L59.5 95.6L60.1 85.6L61.7 77L65.5 69.6" fill="none" stroke="#0a2138" stroke-width=".9"/>
+    <path d="M48.3 105.2L49.8 93.6L51.8 81.4L51.6 70.4L53.9 59.7M55 106.4L56 94.4L56.9 83.3L56.2 73L59 63.2M62.7 104.7L60.9 95.8L61.4 86.1L63 77.5L66.4 70.5" fill="none" stroke="#d7e9f6" stroke-width=".7"/>
+    <path d="M42.3 102.7L44.5 102.1L46.5 102.4M50.2 101.7L52.7 101.5M57.6 102.3L60.1 101.7L63.5 101.9M41.8 105.4L44.6 104.6L46.1 105.1M57.7 105.4L60.1 104.8L65.3 105.3M44.4 91.5L45.4 87.8M45.7 81.1L46.2 76.5M53.1 88.5L53.8 86.4M61 79.6L62.4 76.8M49.4 65.5L50.1 63.8M57.4 91.8L57.8 90.4" fill="none" stroke="#233f59" stroke-width=".48"/>
+    <path d="M42.7 101.6L45 101.2M58 101.2L60.5 100.8L63.6 101M44.1 95.6L44.7 93.1M52.6 78.5L53.1 75.6M59.2 89.5L59.5 87.1" fill="none" stroke="#e2f3fe" stroke-width=".38" opacity=".8"/>
+    <path d="M33.5 47.7C34.6 45.9 36.4 46.4 38 48L43.6 54.7L47.5 58.1C51.1 61.9 52.3 65.1 50.3 67.1C48.2 68.9 45.1 66.2 42.5 63.2L37.5 57.9L34.4 52.5C33.3 50.6 32.8 48.8 33.5 47.7Z" fill="url(#thumb-surface)" stroke="#29445d" stroke-width=".7"/>
+    <path d="M34.7 48L35.8 47.7L37.4 49L40.6 53.1L40.7 54.4L39.5 55.6L37.8 55.3L35.2 51.5Z" fill="url(#nail)" stroke="#445f79" stroke-width=".5"/>
+    <path d="M35.6 48.4L36.7 48.8L39.1 51.8M40.6 58L42.4 57.6L43.2 56.7M42.3 60L44.1 59.3M45.1 63.1L46.3 62.1" fill="none" stroke="#e5f4ff" stroke-width=".55"/>
+    <path d="M40.6 59.4L42.6 59L44.2 57.8M42.7 62L44.7 61.1M46.5 66L48.3 64.5M40.4 68.6L42.9 73.5L44.1 78.6L43.6 83.2M41.7 68.6L44.3 72.6L45.5 77.8" fill="none" stroke="#1b344d" stroke-width=".7"/>
+
+      <ellipse cx="66" cy="80" rx="10" ry="25" fill="url(#red-bounce)" opacity=".34"/>
+      <path d="M76.3 63.9L76.6 67.4L75.5 71.8L72.9 77L68.2 83.9L64.8 90L63.5 94.8L64.4 100.7L66.1 106.7" fill="none" stroke="url(#red-edge)" stroke-width="1.9"/>
+      <path d="M54.7 31.6L56.8 37.4L58.3 42.8L58.9 47.6M57.5 66.3L58.7 77.3L58.5 85.9" fill="none" stroke="url(#red-glint)" stroke-width="1.3"/>
+      <path d="M46.5 7.8L45.3 10.2L45.1 17M40 88.4L41.3 93.7L41.7 102.3" fill="none" stroke="#f8fbff" stroke-width=".7"/>
+    </g>
+    <use href="#hand" fill="none" stroke="#e5f0fb" stroke-width=".42" stroke-linejoin="miter" opacity=".85"/>
+  </g>
+</svg>

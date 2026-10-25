@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f1f1f2" media="(prefers-color-scheme: light)">
+  <meta name="description" content="Juanpablo: ingeniería de software, arte y diseño. Ocho años de formación artística, pintura al óleo y proyectos de web, inteligencia artificial, aplicaciones y simulación.">
+  <meta property="og:title" content="Juanpablo — Código & Visión">
+  <meta property="og:description" content="Proyectos de Juanpablo: Marvel, Catania, Recepy, Harry Potter, visión por computador y simulación científica.">
+  <title>Juanpablo — Código & Visión</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=21">
+  <link rel="preload" href="assets/hero-chrome.png" as="image" fetchpriority="high">
+  <script>
+// Run in <head>, before styles, to resolve the saved preference without a flash.
+// Public contract: data-theme-preference = auto|light|dark; data-theme = light|dark.
+// Initialization only reads storage. The runtime controls own preference writes.
+(() => {
+  'use strict';
+
+  const themeRoot = document.documentElement;
+  let preference = 'auto';
+  try {
+    const saved = localStorage.getItem('jp-theme');
+    if (saved === 'auto' || saved === 'light' || saved === 'dark') preference = saved;
+  } catch (_) { /* Storage can be unavailable in a local preview. */ }
+
+  const systemLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  const resolved = preference === 'auto' ? (systemLight ? 'light' : 'dark') : preference;
+  themeRoot.dataset.themePreference = preference;
+  themeRoot.dataset.theme = resolved;
+  themeRoot.style.colorScheme = resolved;
+  document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
+    meta.setAttribute('content', resolved === 'light' ? '#f1f1f2' : '#000000');
+  });
+})();
+  </script>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css?v=trazos-movimiento-2">
+  <script src="projects.js?v=magical-apps-3" defer></script>
+  <script src="app.js?v=trazos-1" defer></script>
+  <script src="robot-arm.js?v=robotica-plano-2" defer></script>
+  <script src="robot-gallery.js?v=robotica-plano-2" defer></script>
+  <script src="art-gallery.js?v=trazos-movimiento-2" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#proyectos">Saltar al contenido</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="progress" aria-hidden="true"></div>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+    <symbol id="star" viewBox="0 0 50 50"><path d="M25 0c1.4 18.5 6.5 23.6 25 25-18.5 1.4-23.6 6.5-25 25C23.6 31.5 18.5 26.4 0 25 18.5 23.6 23.6 18.5 25 0Z" fill="currentColor"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-down" viewBox="0 0 24 24"><path d="M12 3v18m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-up" viewBox="0 0 24 24"><path d="M12 21V3m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-spark" viewBox="0 0 24 24"><path d="M12 1.5c.8 7.8 2.7 9.7 10.5 10.5-7.8.8-9.7 2.7-10.5 10.5C11.2 14.7 9.3 12.8 1.5 12 9.3 11.2 11.2 9.3 12 1.5Z" fill="none" stroke="currentColor" stroke-width=".8" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M3 8h18M3 16h18" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></symbol>
+    <symbol id="icon-copyright" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15.4 8.1a5.1 5.1 0 1 0 0 7.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-registered" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8.8 17V7h4a2.8 2.8 0 0 1 0 5.6h-4m4 0 3.1 4.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.5 21.64c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.47-.28-5.07-1.24-5.07-5.5 0-1.21.44-2.2 1.15-2.98-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.56 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.98 0 4.27-2.6 5.22-5.08 5.49.4.35.75 1.03.75 2.08v3.05c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></symbol>
+    <symbol id="icon-enlarge" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs></svg>
+
+  <header class="site-header">
+    <div class="header-actions"><button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false"><svg class="motion-bars" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5v10"/><path d="M7.5 2v16"/><path d="M12 7v6"/><path d="M16.5 4v12"/></svg><span class="motion-label">Pausar animaciones</span></button><button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú" aria-haspopup="dialog"><span>Menú</span><svg class="menu-icon" aria-hidden="true" focusable="false"><use class="menu-icon-open" href="#icon-menu"/><use class="menu-icon-close" href="#icon-close"/></svg></button></div>
+  </header>
+  <dialog id="mobile-nav" class="mobile-nav" aria-labelledby="mobile-nav-title">
+    <div class="mobile-nav-top"><span id="mobile-nav-title">Navegación</span><button id="menu-close" type="button" aria-label="Cerrar menú">Cerrar <span aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></span></button></div>
+    <nav aria-label="Navegación principal">
+      <a href="#proyectos"><span class="mobile-nav-number">01</span><span>Proyectos</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      <a href="#robotica"><span class="mobile-nav-number">02</span><span>Robótica</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      <a href="#enfoque"><span class="mobile-nav-number">03</span><span>Enfoque</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      <a href="#arte"><span class="mobile-nav-number">04</span><span>Arte</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      <a href="#sobre-mi"><span class="mobile-nav-number">05</span><span>Sobre mí</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      <a href="#contacto"><span class="mobile-nav-number">06</span><span>Hablemos</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+    </nav>
+    <fieldset id="theme-picker" class="theme-picker">
+      <legend>Tema</legend>
+      <div class="theme-options">
+        <label class="theme-option"><input type="radio" name="theme" value="auto" checked><span>Automático</span></label>
+        <label class="theme-option"><input type="radio" name="theme" value="light"><span>Claro</span></label>
+        <label class="theme-option"><input type="radio" name="theme" value="dark"><span>Oscuro</span></label>
+      </div>
+    </fieldset>
+    <p id="theme-status" class="theme-status" role="status" aria-live="polite">Siguiendo el sistema</p>
+    <p class="mobile-nav-note">JUANPABLO / CÓDIGO & VISIÓN</p>
+    <span class="mobile-nav-glow" aria-hidden="true"></span>
+  </dialog>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <canvas id="dust" aria-hidden="true"></canvas>
+      <div class="hero-top"><span>PORTFOLIO PERSONAL</span><span>VOL. 01 / 2026</span></div>
+      <div class="hero-composition">
+        <div class="hero-stage" id="hero-art-wrap">
+          <div class="orbit-track" aria-hidden="true"></div>
+          <div class="hero-heart" aria-hidden="true"><img src="assets/hero-chrome.png" width="1254" height="1254" alt="" fetchpriority="high"></div>
+          <h1 id="hero-title" class="hero-name"><span class="sr-only">Juanpablo</span><span class="orbit-fallback orbit-glyph" aria-hidden="true">JUANPABLO</span><span class="orbit-letters" aria-hidden="true">
+            <span class="orbit-letter" data-orbit-copy="0" data-orbit-index="0"><span class="orbit-glyph">J</span></span>
+            <span class="orbit-letter" data-orbit-copy="0" data-orbit-index="1"><span class="orbit-glyph">U</span></span>
+            <span class="orbit-letter" data-orbit-copy="0" data-orbit-index="2"><span class="orbit-glyph">A</span></span>
+            <span class="orbit-letter" data-orbit-copy="0" data-orbit-index="3"><span class="orbit-glyph">N</span></span>
+            <span class="orbit-letter" data-orbit-copy="0" data-orbit-index="4"><span class="orbit-glyph">P</span></span>
+            <span class="orbit-letter" data-orbit-copy="0" data-orbit-index="5"><span class="orbit-glyph">A</span></span>
+            <span class="orbit-letter" data-orbit-copy="0" data-orbit-index="6"><span class="orbit-glyph">B</span></span>
+            <span class="orbit-letter" data-orbit-copy="0" data-orbit-index="7"><span class="orbit-glyph">L</span></span>
+            <span class="orbit-letter" data-orbit-copy="0" data-orbit-index="8"><span class="orbit-glyph">O</span></span>
+            <span class="orbit-letter" data-orbit-copy="1" data-orbit-index="0"><span class="orbit-glyph">J</span></span>
+            <span class="orbit-letter" data-orbit-copy="1" data-orbit-index="1"><span class="orbit-glyph">U</span></span>
+            <span class="orbit-letter" data-orbit-copy="1" data-orbit-index="2"><span class="orbit-glyph">A</span></span>
+            <span class="orbit-letter" data-orbit-copy="1" data-orbit-index="3"><span class="orbit-glyph">N</span></span>
+            <span class="orbit-letter" data-orbit-copy="1" data-orbit-index="4"><span class="orbit-glyph">P</span></span>
+            <span class="orbit-letter" data-orbit-copy="1" data-orbit-index="5"><span class="orbit-glyph">A</span></span>
+            <span class="orbit-letter" data-orbit-copy="1" data-orbit-index="6"><span class="orbit-glyph">B</span></span>
+            <span class="orbit-letter" data-orbit-copy="1" data-orbit-index="7"><span class="orbit-glyph">L</span></span>
+            <span class="orbit-letter" data-orbit-copy="1" data-orbit-index="8"><span class="orbit-glyph">O</span></span>
+          </span></h1>
+          <span class="art-caption" aria-hidden="true">CORAZÓN DIGITAL — JUANPABLO / 21</span>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow hero-enter"><span class="red-diamond"></span><span>ESTUDIANTE DE INGENIERÍA DE SOFTWARE<span class="hero-role-secondary">ARTE / DISEÑO DIGITAL / VIDEO</span></span></p>
+          <div class="hero-description hero-enter"><span class="thin-cross" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-spark"/></svg></span><p>Construyo experiencias digitales.<br>Con una mirada formada en el arte.</p></div>
+          <a href="#proyectos" class="button button-light magnetic hero-enter">Explorar mi universo <span class="button-icon"><svg><use href="#arrow"/></svg></span></a>
+        </div>
+      </div>
+      <div class="hero-footer"><p><span class="status-dot"></span> ÚLTIMO AÑO · ING. DE SOFTWARE</p><a href="#proyectos" class="scroll-cue"><span>UN POCO MÁS ABAJO</span><span class="scroll-line" aria-hidden="true"></span><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-down"/></svg></a><span class="hero-coordinate">IDEAS SIN HORARIO.</span></div>
+    </section>
+
+<section class="marquee tech-ribbon" aria-label="Lenguajes, tecnologías y bibliotecas de mis proyectos">
+  <div class="marquee-track tech-track">
+    <ul class="tech-group">
+      <li class="tech-item"><img class="tech-logo tech-logo--python" src="assets/tech/chrome/python.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Python</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--javascript" src="assets/tech/chrome/javascript.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">JavaScript<small class="tech-related">API REST</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--html5" src="assets/tech/chrome/html5.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">HTML</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--css3" src="assets/tech/chrome/css3.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">CSS</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--react" src="assets/tech/chrome/react.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">React</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--nextjs" src="assets/tech/chrome/nextjs.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Next.js</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--nodejs" src="assets/tech/chrome/nodejs.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Node.js</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--git" src="assets/tech/chrome/git.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Git</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--java" src="assets/tech/chrome/java.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Java<small class="tech-related">JUnit</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--csharp" src="assets/tech/chrome/repo-csharp.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">C#</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--dotnetcore" src="assets/tech/chrome/repo-dotnetcore.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">.NET MAUI<small class="tech-related">EF Core / XAML</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--sqlite" src="assets/tech/chrome/repo-sqlite.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">SQLite</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--numpy" src="assets/tech/chrome/repo-numpy.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">NumPy</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--pandas" src="assets/tech/chrome/repo-pandas.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">pandas</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--statsmodels" src="assets/tech/chrome/repo-statsmodels.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Statsmodels</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--scipy" src="assets/tech/chrome/repo-scipy.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">SciPy</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--matplotlib" src="assets/tech/chrome/repo-matplotlib.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Matplotlib</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--scikitlearn" src="assets/tech/chrome/repo-scikitlearn.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">scikit-learn</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--opencv" src="assets/tech/chrome/repo-opencv.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">OpenCV</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--mediapipe" src="assets/tech/chrome/repo-mediapipe.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">MediaPipe</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--seaborn" src="assets/tech/chrome/repo-seaborn.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Seaborn</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--scikitimage" src="assets/tech/chrome/repo-scikitimage.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">scikit-image</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--pywavelets" src="assets/tech/chrome/repo-pywavelets.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">PyWavelets</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--jupyter" src="assets/tech/chrome/repo-jupyter.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Jupyter<small class="tech-related">Cuadernos / Colab</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--plotly" src="assets/tech/chrome/repo-plotly.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Plotly<small class="tech-related">Dash / Bootstrap</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--arduino" src="assets/tech/chrome/repo-arduino.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Arduino<small class="tech-related">PySerial</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--sass" src="assets/tech/chrome/repo-sass.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Sass</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--supabase" src="assets/tech/chrome/repo-supabase.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Supabase</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--firebase" src="assets/tech/chrome/repo-firebase.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Firebase</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--auth0" src="assets/tech/chrome/repo-auth0.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Auth0</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--framermotion" src="assets/tech/chrome/repo-framermotion.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Framer Motion</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--formik" src="assets/tech/chrome/repo-formik.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Formik</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--webgl" src="assets/tech/chrome/repo-webgl.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">WebGL<small class="tech-related">GLSL</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--cucumber" src="assets/tech/chrome/repo-cucumber.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Cucumber</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--serenity" src="assets/tech/chrome/repo-serenity.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Serenity BDD</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--maven" src="assets/tech/chrome/repo-maven.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Maven</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--selenium" src="assets/tech/chrome/repo-selenium.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Selenium</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--apachepoi" src="assets/tech/chrome/repo-apachepoi.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Apache POI</span></li>
+    </ul>
+    <ul class="tech-group" aria-hidden="true">
+      <li class="tech-item"><img class="tech-logo tech-logo--python" src="assets/tech/chrome/python.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Python</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--javascript" src="assets/tech/chrome/javascript.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">JavaScript<small class="tech-related">API REST</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--html5" src="assets/tech/chrome/html5.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">HTML</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--css3" src="assets/tech/chrome/css3.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">CSS</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--react" src="assets/tech/chrome/react.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">React</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--nextjs" src="assets/tech/chrome/nextjs.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Next.js</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--nodejs" src="assets/tech/chrome/nodejs.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Node.js</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--git" src="assets/tech/chrome/git.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Git</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--java" src="assets/tech/chrome/java.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Java<small class="tech-related">JUnit</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--csharp" src="assets/tech/chrome/repo-csharp.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">C#</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--dotnetcore" src="assets/tech/chrome/repo-dotnetcore.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">.NET MAUI<small class="tech-related">EF Core / XAML</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--sqlite" src="assets/tech/chrome/repo-sqlite.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">SQLite</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--numpy" src="assets/tech/chrome/repo-numpy.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">NumPy</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--pandas" src="assets/tech/chrome/repo-pandas.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">pandas</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--statsmodels" src="assets/tech/chrome/repo-statsmodels.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Statsmodels</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--scipy" src="assets/tech/chrome/repo-scipy.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">SciPy</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--matplotlib" src="assets/tech/chrome/repo-matplotlib.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Matplotlib</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--scikitlearn" src="assets/tech/chrome/repo-scikitlearn.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">scikit-learn</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--opencv" src="assets/tech/chrome/repo-opencv.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">OpenCV</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--mediapipe" src="assets/tech/chrome/repo-mediapipe.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">MediaPipe</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--seaborn" src="assets/tech/chrome/repo-seaborn.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Seaborn</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--scikitimage" src="assets/tech/chrome/repo-scikitimage.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">scikit-image</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--pywavelets" src="assets/tech/chrome/repo-pywavelets.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">PyWavelets</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--jupyter" src="assets/tech/chrome/repo-jupyter.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Jupyter<small class="tech-related">Cuadernos / Colab</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--plotly" src="assets/tech/chrome/repo-plotly.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Plotly<small class="tech-related">Dash / Bootstrap</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--arduino" src="assets/tech/chrome/repo-arduino.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Arduino<small class="tech-related">PySerial</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--sass" src="assets/tech/chrome/repo-sass.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Sass</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--supabase" src="assets/tech/chrome/repo-supabase.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Supabase</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--firebase" src="assets/tech/chrome/repo-firebase.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Firebase</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--auth0" src="assets/tech/chrome/repo-auth0.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Auth0</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--framermotion" src="assets/tech/chrome/repo-framermotion.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Framer Motion</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--formik" src="assets/tech/chrome/repo-formik.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Formik</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--webgl" src="assets/tech/chrome/repo-webgl.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">WebGL<small class="tech-related">GLSL</small></span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--cucumber" src="assets/tech/chrome/repo-cucumber.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Cucumber</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--serenity" src="assets/tech/chrome/repo-serenity.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Serenity BDD</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--maven" src="assets/tech/chrome/repo-maven.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Maven</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--selenium" src="assets/tech/chrome/repo-selenium.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Selenium</span></li>
+      <li class="tech-item"><img class="tech-logo tech-logo--apachepoi" src="assets/tech/chrome/repo-apachepoi.svg" alt="" width="64" height="64" decoding="async"><span class="tech-label">Apache POI</span></li>
+    </ul>
+  </div>
+</section>
+
+    <section id="proyectos" class="work section-pad" aria-labelledby="work-title">
+      <div class="section-heading reveal"><div><p class="eyebrow section-index">01 / PROYECTOS PROPIOS</p><h2 id="work-title">Del código<br><em>a lo que imagino.</em></h2></div><p class="section-intro">Interfaces, inteligencia artificial y simulaciones.<br>Una selección de lo que he construido y aprendido, con el código abierto para explorarlo.</p></div>
+      <div class="work-toolbar reveal"><div class="filters" role="group" aria-label="Filtrar proyectos"><button type="button" class="filter active" data-filter="all" aria-pressed="true">Todos <span>21</span></button><button type="button" class="filter" data-filter="web" aria-pressed="false">Web <span>06</span></button><button type="button" class="filter" data-filter="ai" aria-pressed="false">IA y datos <span>08</span></button><button type="button" class="filter" data-filter="simulation" aria-pressed="false">Simulación <span>03</span></button><button type="button" class="filter" data-filter="apps" aria-pressed="false">Aplicaciones <span>03</span></button><button type="button" class="filter" data-filter="qa" aria-pressed="false">Pruebas QA <span>01</span></button></div><span class="toolbar-note">OWN21M / REPOSITORIOS PÚBLICOS</span></div>
+      <div class="projects-grid">
+        <button type="button" class="project-card tilt-wrap reveal" data-project="marvel-api" data-category="web" aria-label="Ver Marvel / Personajes, Web">
+          <div class="project-art project-cover project-cover--marvel-api"><div class="project-browserbar"><svg viewBox="0 0 30 10" aria-hidden="true" focusable="false"><circle cx="4" cy="5" r="2" fill="currentColor"/><circle cx="14" cy="5" r="2" fill="currentColor"/><circle cx="24" cy="5" r="2" fill="currentColor"/></svg><span>WEB / Marvel-API</span></div><img class="project-shot" src="assets/projects/marvel.webp" alt="" width="1400" height="788" loading="lazy" decoding="async"><span class="cover-caption">CAPTURA ORIGINAL DEL PROYECTO</span><span class="project-view">Ver proyecto <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <div class="project-meta"><div><h3>Marvel / Personajes</h3><p>Exploración web</p></div><span class="project-number">01 <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <p class="project-summary">Personajes, cómics e historias del universo Marvel en una interfaz construida con HTML, CSS y JavaScript.</p><ul class="project-techlist" aria-label="Tecnologías"><li>JavaScript</li><li>HTML</li><li>CSS</li><li>API REST</li></ul>
+        <span class="project-case-cue"><span>EXPLORAR EL PROYECTO</span><span>06 imágenes / 3 pasos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span>
+        </button>
+        <button type="button" class="project-card tilt-wrap reveal" data-project="catania-cocteleria" data-category="web" aria-label="Ver Catania Coctelería, Web">
+          <div class="project-art project-cover project-cover--catania-cocteleria"><div class="project-browserbar"><svg viewBox="0 0 30 10" aria-hidden="true" focusable="false"><circle cx="4" cy="5" r="2" fill="currentColor"/><circle cx="14" cy="5" r="2" fill="currentColor"/><circle cx="24" cy="5" r="2" fill="currentColor"/></svg><span>WEB / catania-cocteleria</span></div><img class="project-shot" src="assets/projects/catania.webp" alt="" width="1400" height="973" loading="lazy" decoding="async"><span class="cover-caption">CAPTURA ORIGINAL DEL PROYECTO</span><span class="project-view">Ver proyecto <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <div class="project-meta"><div><h3>Catania Coctelería</h3><p>Sitio de catálogo</p></div><span class="project-number">02 <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <p class="project-summary">Un catálogo de bebidas con una experiencia visual de luz líquida y pedidos preparados para WhatsApp.</p><ul class="project-techlist" aria-label="Tecnologías"><li>JavaScript</li><li>CSS</li><li>WebGL / GLSL</li><li>HTML</li></ul>
+        <span class="project-case-cue"><span>EXPLORAR EL PROYECTO</span><span>03 imágenes / 4 pasos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span>
+        </button>
+        <button type="button" class="project-card tilt-wrap reveal" data-project="harry-potter-app" data-category="apps" aria-label="Ver Harry Potter App, Aplicaciones">
+          <div class="project-art project-cover project-cover--harry-potter-app"><div class="project-browserbar"><svg viewBox="0 0 30 10" aria-hidden="true" focusable="false"><circle cx="4" cy="5" r="2" fill="currentColor"/><circle cx="14" cy="5" r="2" fill="currentColor"/><circle cx="24" cy="5" r="2" fill="currentColor"/></svg><span>APLICACIONES / HarryPotterApp</span></div><img class="project-shot project-runtime-shot" src="assets/projects/runtime-harry-inicio.webp" alt="" width="416" height="933" loading="lazy" decoding="async"><span class="cover-caption">CAPTURA REAL / APP EN WINDOWS</span><span class="project-view">Ver proyecto <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <div class="project-meta"><div><h3>Harry Potter App</h3><p>App móvil · rediseño nativo en C# / .NET MAUI</p></div><span class="project-number">03 <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <p class="project-summary">Una app para explorar personajes del mundo de Harry Potter: buscar por nombre, abrir su ficha y guardar favoritos en el dispositivo.</p><ul class="project-techlist" aria-label="Tecnologías"><li>C#</li><li>.NET MAUI</li><li>XAML</li><li>.NET 9</li></ul>
+        <span class="project-case-cue"><span>EXPLORAR EL PROYECTO</span><span>05 imágenes / 4 pasos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span>
+        </button>
+        <button type="button" class="project-card tilt-wrap reveal" data-project="expresiones-faciales" data-category="ai" aria-label="Ver Expresiones faciales, IA y datos">
+          <div class="project-art project-cover project-cover--expresiones-faciales project-cover--plot"><div class="project-browserbar"><svg viewBox="0 0 30 10" aria-hidden="true" focusable="false"><circle cx="4" cy="5" r="2" fill="currentColor"/><circle cx="14" cy="5" r="2" fill="currentColor"/><circle cx="24" cy="5" r="2" fill="currentColor"/></svg><span>IA Y DATOS / clasificacion-expresiones-faciales</span></div><img class="project-shot" src="assets/projects/expresiones.png" alt="" width="510" height="393" loading="lazy" decoding="async"><span class="cover-caption">RESULTADO ORIGINAL DEL CUADERNO</span><span class="project-view">Ver proyecto <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <div class="project-meta"><div><h3>Expresiones faciales</h3><p>Experimentos de visión por computador</p></div><span class="project-number">04 <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <p class="project-summary">De una imagen a sus características: experimentos para distinguir las clases angry y happy con HOG, momentos de Hu y modelos clásicos de aprendizaje automático.</p><ul class="project-techlist" aria-label="Tecnologías"><li>Python</li><li>OpenCV</li><li>scikit-learn</li><li>HOG</li></ul>
+        <span class="project-case-cue"><span>EXPLORAR EL PROYECTO</span><span>02 imágenes / 4 pasos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span>
+        </button>
+        <button type="button" class="project-card tilt-wrap reveal" data-project="orbitas-dos-cuerpos" data-category="simulation" aria-label="Ver Órbitas de dos cuerpos, Simulación">
+          <div class="project-art project-cover project-cover--orbitas-dos-cuerpos project-cover--plot"><div class="project-browserbar"><svg viewBox="0 0 30 10" aria-hidden="true" focusable="false"><circle cx="4" cy="5" r="2" fill="currentColor"/><circle cx="14" cy="5" r="2" fill="currentColor"/><circle cx="24" cy="5" r="2" fill="currentColor"/></svg><span>SIMULACIÓN / orbitas-gravitacionales-dos-cuerpos</span></div><img class="project-shot" src="assets/projects/orbitas.png" alt="" width="1175" height="1220" loading="lazy" decoding="async"><span class="cover-caption">RESULTADO ORIGINAL DEL CUADERNO</span><span class="project-view">Ver proyecto <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <div class="project-meta"><div><h3>Órbitas de dos cuerpos</h3><p>Simulación académica</p></div><span class="project-number">05 <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <p class="project-summary">Dos masas, una atracción mutua y sus trayectorias en 3D: simulación de un sistema gravitacional idealizado con SciPy y Matplotlib.</p><ul class="project-techlist" aria-label="Tecnologías"><li>Python</li><li>SciPy</li><li>Matplotlib</li><li>Gravitación</li></ul>
+        <span class="project-case-cue"><span>EXPLORAR EL PROYECTO</span><span>01 imagen / 3 pasos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span>
+        </button>
+        <button type="button" class="project-card tilt-wrap reveal" data-project="recepy" data-category="web" aria-label="Ver Recepy, Web">
+          <div class="project-art project-cover project-cover--recepy"><div class="project-browserbar"><svg viewBox="0 0 30 10" aria-hidden="true" focusable="false"><circle cx="4" cy="5" r="2" fill="currentColor"/><circle cx="14" cy="5" r="2" fill="currentColor"/><circle cx="24" cy="5" r="2" fill="currentColor"/></svg><span>WEB / recepy</span></div><img class="project-shot project-runtime-shot" src="assets/projects/runtime-recepy-portada.webp" alt="" width="795" height="1170" loading="lazy" decoding="async"><span class="cover-caption">CAPTURA REAL / NUEVA CAPA VISUAL</span><span class="project-view">Ver proyecto <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <div class="project-meta"><div><h3>Recepy</h3><p>Proyecto colaborativo · 2021 / nuevo diseño local</p></div><span class="project-number">06 <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <p class="project-summary">Una red social de recetas creada en equipo en 2021, recuperada con una nueva capa de diseño editorial.</p><ul class="project-techlist" aria-label="Tecnologías"><li>Next.js</li><li>React</li><li>Sass</li><li>Firebase / Auth0</li></ul>
+        <span class="project-case-cue"><span>EXPLORAR EL PROYECTO</span><span>06 imágenes / 4 pasos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span>
+        </button>
+        <button type="button" class="project-card tilt-wrap reveal" data-project="brazo-robotico-gestos" data-category="ai" aria-label="Ver Gestos y robótica, IA y datos">
+          <div class="project-art project-cover project-cover--brazo-robotico-gestos"><div class="project-browserbar"><svg viewBox="0 0 30 10" aria-hidden="true" focusable="false"><circle cx="4" cy="5" r="2" fill="currentColor"/><circle cx="14" cy="5" r="2" fill="currentColor"/><circle cx="24" cy="5" r="2" fill="currentColor"/></svg><span>IA Y DATOS / control-brazo-robotico-gestos</span></div><div class="project-cover-code"><svg class="project-gesture-diagram" viewBox="0 0 280 135" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3"><path d="M77 113 43 85 34 66 41 60 62 80 59 44 62 12 68 9 74 15 76 55 85 27 92 23 98 29 91 65 109 42 117 41 121 48 105 80 125 65 133 69 132 77 109 108Z"/><path d="M79 110 74 79 68 60 64 36M77 80 87 65 93 45M87 89 105 77M99 101 115 90"/><path d="M150 68h33m-6-6 6 6-6 6M207 110V86l28-26-14-24M196 113h46M218 35l14-9 12 11"/></g><g fill="var(--red)"><circle cx="74" cy="79" r="3"/><circle cx="87" cy="65" r="3"/><circle cx="207" cy="86" r="4"/><circle cx="235" cy="60" r="4"/><circle cx="221" cy="36" r="4"/></g></svg><h4>Del gesto<br>al movimiento.</h4><span>MEDIAPIPE / OPENCV / ARDUINO</span></div><span class="cover-caption">FLUJO DEL PROTOTIPO / DIAGRAMA</span><span class="project-view">Ver proyecto <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <div class="project-meta"><div><h3>Gestos y robótica</h3><p>Prototipo de visión y robótica</p></div><span class="project-number">07 <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <p class="project-summary">Un prototipo que convierte puntos de la mano capturados por webcam en órdenes para los tres servos de un brazo robótico.</p><ul class="project-techlist" aria-label="Tecnologías"><li>Python</li><li>MediaPipe</li><li>OpenCV</li><li>Arduino</li></ul>
+        <span class="project-case-cue"><span>EXPLORAR EL PROYECTO</span><span>Diagrama visual / 4 pasos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span>
+        </button>
+        <button type="button" class="project-card tilt-wrap reveal" data-project="viviendas-teheran" data-category="ai" aria-label="Ver Viviendas en Teherán, IA y datos">
+          <div class="project-art project-cover project-cover--viviendas-teheran project-cover--plot"><div class="project-browserbar"><svg viewBox="0 0 30 10" aria-hidden="true" focusable="false"><circle cx="4" cy="5" r="2" fill="currentColor"/><circle cx="14" cy="5" r="2" fill="currentColor"/><circle cx="24" cy="5" r="2" fill="currentColor"/></svg><span>IA Y DATOS / analisis-viviendas-teheran</span></div><img class="project-shot" src="assets/projects/detail-teheran-regresion.png" alt="" width="567" height="456" loading="lazy" decoding="async"><span class="cover-caption">RESULTADO ORIGINAL DEL CUADERNO</span><span class="project-view">Ver proyecto <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <div class="project-meta"><div><h3>Viviendas en Teherán</h3><p>Proyecto académico en equipo</p></div><span class="project-number">08 <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span></div>
+          <p class="project-summary">Datos, estadística y una interfaz para explorarlos: análisis de viviendas en Teherán con regresión lineal, ANOVA y un dashboard de cuatro páginas en Dash.</p><ul class="project-techlist" aria-label="Tecnologías"><li>Python</li><li>pandas</li><li>Dash</li><li>Plotly</li></ul>
+        <span class="project-case-cue"><span>EXPLORAR EL PROYECTO</span><span>04 imágenes / 4 pasos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></span>
+        </button>
+      </div>
+      <details class="repository-archive" id="repository-archive"><summary><span>Más código, más recorrido. <span id="archive-count">13 repositorios</span></span><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-plus"/></svg></summary><p class="repository-archive-intro">También forman parte de mi historia: primeros ejercicios, prototipos, pruebas y cuadernos universitarios. Cada uno tiene su ficha y enlace al repositorio.</p><div class="repository-list">
+          <button type="button" class="repository-item" data-project="hand-tracker" data-category="ai" aria-label="Ver Hand Tracker"><span class="repository-number">09</span><span class="repository-copy"><span class="repository-title">Hand Tracker</span><span class="repository-description">Prototipo de visión por computador que convierte la posición de una mano y la distancia entre dedos en órdenes para un brazo robótico con Arduino.</span></span><span class="repository-type">IA y datos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="campos-electricos" data-category="simulation" aria-label="Ver Campos eléctricos / Coulomb"><span class="repository-number">10</span><span class="repository-copy"><span class="repository-title">Campos eléctricos / Coulomb</span><span class="repository-description">Tres experimentos para calcular y dibujar el campo eléctrico producido por cargas positivas y negativas sobre una malla de puntos.</span></span><span class="repository-type">Simulación</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="metodos-numericos" data-category="simulation" aria-label="Ver Métodos numéricos con Python"><span class="repository-number">11</span><span class="repository-copy"><span class="repository-title">Métodos numéricos con Python</span><span class="repository-description">Cinco cuadernos para explorar interpolación, Euler y Heun, funciones de base radial y diferencias finitas con Python.</span></span><span class="repository-type">Simulación</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="transformada-haar" data-category="ai" aria-label="Ver Haar: descomponer una imagen"><span class="repository-number">12</span><span class="repository-copy"><span class="repository-title">Haar: descomponer una imagen</span><span class="repository-description">Un ejercicio de procesamiento de imágenes que separa una fotografía de ejemplo en bandas de detalle mediante la transformada wavelet Haar.</span></span><span class="repository-type">IA y datos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="modelos-titanic-boston" data-category="ai" aria-label="Ver Titanic / Boston: comparar modelos"><span class="repository-number">13</span><span class="repository-copy"><span class="repository-title">Titanic / Boston: comparar modelos</span><span class="repository-description">Dos problemas de aprendizaje supervisado para comparar KNN con regresión logística y lineal: supervivencia en Titanic y precios de viviendas.</span></span><span class="repository-type">IA y datos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="regresion-aapl" data-category="ai" aria-label="Ver AAPL: explorar y comparar regresores"><span class="repository-number">14</span><span class="repository-copy"><span class="repository-title">AAPL: explorar y comparar regresores</span><span class="repository-description">Análisis del histórico de Apple para comparar modelos de regresión y selección de características sobre el precio de cierre de la misma jornada.</span></span><span class="repository-type">IA y datos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="estadistica-altura-peso" data-category="ai" aria-label="Ver Estadística de altura y peso"><span class="repository-number">15</span><span class="repository-copy"><span class="repository-title">Estadística de altura y peso</span><span class="repository-description">Exploración de datos de altura y peso: estadística descriptiva, gráficos y detección de valores atípicos en tres cuadernos universitarios.</span></span><span class="repository-type">IA y datos</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="gym" data-category="web" aria-label="Ver Rutina · Plan intensivo"><span class="repository-number">16</span><span class="repository-copy"><span class="repository-title">Rutina · Plan intensivo</span><span class="repository-description">Una interfaz de rutina semanal con ejercicios marcables, progreso diario y un temporizador de descansos.</span></span><span class="repository-type">Web</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="tiktak" data-project-era="early" data-category="web" aria-label="Ver Tres en raya · El comienzo"><span class="repository-number">17</span><span class="repository-copy"><span class="repository-badge">Primeros proyectos</span><span class="repository-title">Tres en raya · El comienzo</span><span class="repository-description">Mi primer proyecto con CSS y JavaScript: un tres en raya local para dos personas.</span></span><span class="repository-type">Web</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="bankapp" data-category="apps" aria-label="Ver Bank App, Dashboard bancario"><span class="repository-number">18</span><span class="repository-copy"><span class="repository-title">Bank App</span><span class="repository-variant">Dashboard bancario</span><span class="repository-description">Dashboard de Bank App: perfil, movimientos y operaciones conectadas a Supabase.</span></span><span class="repository-type">Aplicaciones</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="bankaapp" data-category="apps" aria-label="Ver Bank App, Interfaz bancaria"><span class="repository-number">19</span><span class="repository-copy"><span class="repository-title">Bank App</span><span class="repository-variant">Interfaz bancaria</span><span class="repository-description">Interfaz de Bank App: acceso, registro, transacciones, préstamos y reportes.</span></span><span class="repository-type">Aplicaciones</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="googleautotest" data-category="qa" aria-label="Ver Google AutoTest · Pruebas BDD"><span class="repository-number">20</span><span class="repository-copy"><span class="repository-title">Google AutoTest · Pruebas BDD</span><span class="repository-description">Automatización de búsquedas de Google con escenarios básicos, avanzados y datos de prueba leídos desde Excel.</span></span><span class="repository-type">Pruebas QA</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          <button type="button" class="repository-item" data-project="flexbox3" data-project-era="early" data-category="web" aria-label="Ver Flexbox · Claro / oscuro"><span class="repository-number">21</span><span class="repository-copy"><span class="repository-badge">Primeros proyectos</span><span class="repository-title">Flexbox · Claro / oscuro</span><span class="repository-description">Un estudio de composición con ocho bloques y una paleta que sigue el tema del sistema.</span></span><span class="repository-type">Web</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+      </div></details>
+      <div class="archive-footer reveal"><span id="project-count" aria-live="polite">21 / REPOSITORIOS PÚBLICOS</span><p>Ocho destacados. El resto, en el archivo.</p><a class="github-profile-link" href="https://github.com/own21m" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg>GitHub / @own21m</a></div>
+    </section>
+
+    <section id="robotica" class="robotics section-pad" aria-labelledby="robotics-title" data-renderer="idle">
+      <div class="robot-heading">
+        <p class="eyebrow section-index"><span class="red-diamond"></span> LABORATORIO / ROBÓTICA Y VISIÓN</p>
+        <h2 id="robotics-title">Un gesto.<br><em>Movimiento real.</em></h2>
+        <p class="robot-intro">Un brazo que construí para llevar el código al mundo físico. La mano se convierte en una instrucción; la instrucción, en movimiento.</p>
+        <a class="robot-code-link" href="https://github.com/own21m/hand-tracker" target="_blank" rel="noopener noreferrer"><span>Explorar el código</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+        <ul class="robot-technologies" aria-label="Tecnologías del proyecto"><li>Python</li><li>OpenCV</li><li>MediaPipe</li><li>Arduino</li><li>PySerial</li></ul>
+      </div>
+      <div class="robot-exhibit">
+        <div class="robot-exhibit-top" aria-hidden="true"><span>ESTUDIO DE MOVIMIENTO / 01</span><span class="robot-live"><span></span> PLANO INTERACTIVO</span></div>
+        <div class="robot-stage">
+          <span class="robot-stage-orbit" aria-hidden="true"></span>
+          <svg class="robot-drafting" viewBox="0 0 1000 900" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width=".8"><path d="M35 105V55h50m830 0h50v50M35 795v50h50m830 0h50v-50M480 55h40m-20-20v40M480 845h40m-20-20v40"/><path d="M35 450h930M500 55v790" stroke-dasharray="3 12" opacity=".32"/><path d="M90 802h200m-200-5v10m50-8v6m50-6v6m50-6v6m50-8v10"/></g></svg>
+          <img class="robot-fallback robot-fallback--dark" src="assets/robotics/arm-study.svg" alt="Plano tridimensional del brazo: estructura de barras paralelas, articulaciones y pinza horizontal dibujadas con líneas técnicas." width="1000" height="900" loading="lazy" decoding="async">
+          <img class="robot-fallback robot-fallback--light" src="assets/robotics/arm-study-light.svg" alt="Plano tridimensional del brazo: estructura de barras paralelas, articulaciones y pinza horizontal dibujadas con líneas técnicas." width="1000" height="900" loading="lazy" decoding="async">
+          <canvas id="robot-arm-canvas" width="1000" height="900" tabindex="0" data-cursor="grab" role="img" aria-label="Modelo 3D interactivo de mi brazo robótico" aria-describedby="robot-instructions robot-model-note"></canvas>
+          <span class="robot-model-tag" aria-hidden="true">JP / ESTUDIO MECÁNICO</span>
+        </div>
+        <p id="robot-instructions" class="robot-instructions"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h16M7 8l-4 4 4 4m10-8 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Arrastra para girar. Con teclado: flechas para girar, espacio para pausar, Inicio para restablecer.</span></p>
+        <div class="robot-console">
+          <div class="robot-poses" role="group" aria-label="Postura del modelo 3D">
+            <button type="button" data-robot-only data-robot-pose="saludo" aria-pressed="true">Explorar</button>
+            <button type="button" data-robot-only data-robot-pose="alcance" aria-pressed="false">Alcance</button>
+            <button type="button" data-robot-only data-robot-pose="reposo" aria-pressed="false">Reposo</button>
+          </div>
+          <div class="robot-actions" role="group" aria-label="Controles del modelo 3D">
+            <button id="robot-play" data-robot-only type="button" aria-pressed="true"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path class="robot-pause-icon" d="M7 4v12m6-12v12" fill="none" stroke="currentColor" stroke-width="1.5"/><path class="robot-play-icon" d="m7 4 9 6-9 6Z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span data-robot-play-label>Animación</span></button>
+            <button id="robot-grip" data-robot-only type="button" aria-pressed="true"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M8 4 4 7v7l3 2m5-12 4 3v7l-3 2M8 4h4m-2 0V1" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-robot-grip-label>Pinza</span></button>
+            <button id="robot-reset" data-robot-only type="button" aria-label="Restablecer la vista del brazo"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 8a6.4 6.4 0 1 1 .4 5M4 3v5h5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+        <div class="robot-exhibit-foot"><p id="robot-model-note">Plano 3D inspirado en mi montaje.</p><span id="robot-pose-label">Explorar</span></div>
+        <p id="robot-status" class="robot-status" role="status" aria-live="polite">Modelo preparado. La vista 3D se activa al llegar a esta sección.</p>
+        <div class="robot-gallery-entry"><span>EL MONTAJE REAL / 03 VIDEOS</span><button type="button" id="robot-gallery-open" aria-haspopup="dialog" aria-controls="robot-gallery" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="m10 9 5 3-5 3Z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Galería<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button></div>
+      </div>
+      <ol class="robot-pipeline" aria-label="Cómo funciona el proyecto real">
+        <li><span class="robot-step-number">01</span><div><h3>La mano</h3><p>OpenCV captura la imagen y MediaPipe localiza los puntos de la mano.</p></div><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1"/></svg></li>
+        <li><span class="robot-step-number">02</span><div><h3>El código</h3><p>Python transforma posición y distancia entre dedos en órdenes por puerto serie.</p></div><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1"/></svg></li>
+        <li><span class="robot-step-number">03</span><div><h3>El movimiento</h3><p>Arduino acciona la base, la extensión y la pinza del brazo.</p></div></li>
+      </ol>
+    </section>
+
+    <section id="enfoque" class="approach section-pad" aria-labelledby="approach-title">
+      <svg class="approach-surface" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="fragmentos-soft" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="9"/></filter>
+          <radialGradient id="fragmentos-paint" cx="32%" cy="28%" r="75%">
+            <stop class="fragmentos-highlight" offset="0"/>
+            <stop class="fragmentos-base" offset=".68"/>
+          </radialGradient>
+        </defs>
+        <g fill="url(#fragmentos-paint)" filter="url(#fragmentos-soft)">
+          <path d="M-60 157C11 67 101 119 181 67S326 43 411 101 549 119 632 58 791 24 866 79 1009 116 1102 54 1253 22 1324 77 1469 111 1541 54 1657 50 1682 146C1711 268 1567 337 1634 452S1634 636 1583 738 1690 906 1618 1028C1579 1099 1476 1048 1400 1121S1246 1169 1159 1109 1010 1091 935 1155 774 1179 689 1117 546 1086 450 1150 294 1168 209 1100 61 1125-20 1067C-101 1009 42 920-8 803S-54 622 13 533-20 362-54 279-97 204-60 157Z"/>
+          <ellipse cx="267" cy="61" rx="88" ry="29" transform="rotate(-7 267 61)"/>
+          <ellipse cx="1197" cy="38" rx="75" ry="24" transform="rotate(9 1197 38)"/>
+          <ellipse cx="1075" cy="1166" rx="91" ry="26" transform="rotate(-9 1075 1166)"/>
+        </g>
+      </svg>
+      <span class="approach-edge approach-edge-top" aria-hidden="true"></span>
+      <span class="approach-edge approach-edge-bottom" aria-hidden="true"></span>
+      <div class="approach-heading">
+        <p class="eyebrow section-index reveal">02 / MI FORMA DE CREAR</p>
+        <h2 id="approach-title" class="reveal">Código.<br><em>Imagen.</em><br>Instinto.</h2>
+        <p class="approach-intro reveal">Construyo interfaces, exploro datos y convierto preguntas en código. De una ficha de personaje a una órbita en Python.</p>
+        <div class="approach-sculpture" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+        <span class="approach-coordinate" aria-hidden="true">21 / OTRAS FORMAS DE MIRAR</span>
+      </div>
+      <div class="approach-content">
+        <p class="approach-kicker reveal">DISTINTAS HERRAMIENTAS.<br>LA MISMA CURIOSIDAD.</p>
+        <div class="discipline-list">
+          <details class="discipline reveal" open><summary><span class="discipline-number">01</span><h3>Desarrollo web</h3><span class="discipline-plus" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-plus"/></svg></span></summary><div class="discipline-content"><p>Interfaces con HTML, CSS, JavaScript, React y Next.js. Personajes de Marvel, recetas compartidas y el catálogo de Catania.</p><span>ESTRUCTURA / INTERACCIÓN / EXPERIENCIA</span></div></details>
+          <details class="discipline reveal"><summary><span class="discipline-number">02</span><h3>IA y datos</h3><span class="discipline-plus" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-plus"/></svg></span></summary><div class="discipline-content"><p>Cuadernos de Python para explorar datos, comparar modelos y trabajar con imágenes. Visión por computador con OpenCV y MediaPipe.</p><span>PYTHON / MODELOS / VISIÓN</span></div></details>
+          <details class="discipline reveal"><summary><span class="discipline-number">03</span><h3>Apps y simulación</h3><span class="discipline-plus" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-plus"/></svg></span></summary><div class="discipline-content"><p>Una app de Harry Potter con C# y .NET MAUI. Órbitas, campos eléctricos y métodos numéricos con SciPy, NumPy y Matplotlib.</p><span>C# / .NET MAUI / SIMULACIÓN</span></div></details>
+        </div>
+        <a class="approach-cta magnetic reveal" href="#contacto">Démosle forma a tu idea <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+      </div>
+    </section>
+
+    <section id="arte" class="art-section section-pad" aria-labelledby="art-title">
+      <div class="art-topline"><p class="eyebrow section-index">03 / ARTE Y MIRADA</p><span>09 PIEZAS / ARCHIVO PERSONAL</span></div>
+      <div class="art-introduction">
+        <div class="art-heading reveal">
+          <h2 id="art-title">El arte también<br><em>deja huella.</em></h2>
+          <p class="art-intro">Hay ideas que empiezan lejos de una pantalla. En un cuaderno, entre retratos, sombras y líneas que todavía buscan su forma.</p>
+          <p class="art-signature">TRAZOS PROPIOS / JUANPABLO</p>
+        </div>
+        <div class="art-biography reveal">
+          <svg class="art-seal" viewBox="0 0 72 110" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width=".8"><path d="M36 2v106M20 17h32M25 93h22M36 17C34 32 15 34 15 53c0 18 13 24 21 32 8-8 21-14 21-32 0-19-19-21-21-36Z"/><path d="M36 31C35 41 24 43 24 54s8 16 12 21c4-5 12-10 12-21S37 41 36 31Z"/><path d="m31 5 5-4 5 4m-10 98 5 6 5-6M7 53h58"/></g></svg>
+          <div><div class="art-experience"><span class="art-years" aria-hidden="true">08</span><div><p class="art-experience-title">8 años de formación<br>y práctica artística</p><p id="art-school" class="art-school">Débora Arango · Envigado</p></div></div><p class="art-connection">Del óleo a la pantalla: composición, color y atención al detalle atraviesan mi trabajo visual y mis interfaces.</p></div>
+        </div>
+      </div>
+      <div class="art-gallery-heading"><div><span class="art-archive-label">GABINETE DE TRAZOS</span><h3>Un poco de sombra.<br>Algo de mí.</h3></div><p id="drawing-instructions"><svg viewBox="0 0 26 26" aria-hidden="true" focusable="false"><circle cx="13" cy="13" r="8" fill="none" stroke="currentColor" stroke-width=".8"/><path d="M13 1v5m0 14v5M1 13h5m14 0h5m-12-4v8m-4-4h8" fill="none" stroke="currentColor" stroke-width=".8"/></svg><span>Desliza el cursor para revelar el papel original.<br>Pulsa un dibujo para verlo completo.</span></p></div>
+      <div id="drawing-gallery" class="drawing-gallery" aria-label="Nueve dibujos de mis cuadernos">
+        <figure class="drawing-entry" data-drawing-work="naturaleza-y-hueso">
+          <button type="button" class="drawing-open" data-drawing="0" data-art-src="assets/art/naturaleza-y-hueso-original.webp" data-art-title="Naturaleza y hueso" data-art-alt="Dibujo de una calavera junto a flores, un jarrón y pequeños objetos sobre una mesa." data-art-caption="Flores, hueso y objetos: un estudio de contraste y composición sobre papel." aria-label="Ver dibujo original: Naturaleza y hueso" aria-haspopup="dialog" aria-controls="art-lightbox" aria-describedby="drawing-instructions"><span class="drawing-surface" style="--drawing-ratio:678/1100"><img class="drawing-negative" src="assets/art/naturaleza-y-hueso-paper.webp" width="678" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"><img class="drawing-original" src="assets/art/naturaleza-y-hueso-paper.webp" width="678" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span class="drawing-view">Ver original <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg></span></button>
+          <figcaption><span class="drawing-index">01 / 09</span><h3 class="drawing-title">Naturaleza y hueso</h3><p class="drawing-caption">Flores, hueso y objetos: un estudio de contraste y composición sobre papel.</p></figcaption>
+        </figure>
+        <figure class="drawing-entry" data-drawing-work="rostro-en-trama">
+          <button type="button" class="drawing-open" data-drawing="1" data-art-src="assets/art/rostro-en-trama-original.webp" data-art-title="Rostro en trama" data-art-alt="Estudio de una cabeza de apariencia clásica, construida con líneas y tramas cruzadas." data-art-caption="Volumen y expresión construidos con líneas que se cruzan." aria-label="Ver dibujo original: Rostro en trama" aria-haspopup="dialog" aria-controls="art-lightbox" aria-describedby="drawing-instructions"><span class="drawing-surface" style="--drawing-ratio:864/1100"><img class="drawing-negative" src="assets/art/rostro-en-trama-paper.webp" width="864" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"><img class="drawing-original" src="assets/art/rostro-en-trama-paper.webp" width="864" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span class="drawing-view">Ver original <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg></span></button>
+          <figcaption><span class="drawing-index">02 / 09</span><h3 class="drawing-title">Rostro en trama</h3><p class="drawing-caption">Volumen y expresión construidos con líneas que se cruzan.</p></figcaption>
+        </figure>
+        <figure class="drawing-entry" data-drawing-work="hueso-y-geometria">
+          <button type="button" class="drawing-open" data-drawing="2" data-art-src="assets/art/hueso-y-geometria-original.webp" data-art-title="Hueso y geometría" data-art-alt="Estudio lateral de una calavera en una hoja de cuaderno con apuntes de una hipérbola." data-art-caption="Un cráneo y apuntes de geometría comparten la misma página de cuaderno." aria-label="Ver dibujo original: Hueso y geometría" aria-haspopup="dialog" aria-controls="art-lightbox" aria-describedby="drawing-instructions"><span class="drawing-surface" style="--drawing-ratio:774/1100"><img class="drawing-negative" src="assets/art/hueso-y-geometria-paper.webp" width="774" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"><img class="drawing-original" src="assets/art/hueso-y-geometria-paper.webp" width="774" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span class="drawing-view">Ver original <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg></span></button>
+          <figcaption><span class="drawing-index">03 / 09</span><h3 class="drawing-title">Hueso y geometría</h3><p class="drawing-caption">Un cráneo y apuntes de geometría comparten la misma página de cuaderno.</p></figcaption>
+        </figure>
+        <figure class="drawing-entry" data-drawing-work="jinete">
+          <button type="button" class="drawing-open" data-drawing="3" data-art-src="assets/art/jinete-original.webp" data-art-title="Jinete" data-art-alt="Dibujo de un jinete con sombrero sobre un caballo en movimiento." data-art-caption="Un estudio de gesto y movimiento entre el caballo y su jinete." aria-label="Ver dibujo original: Jinete" aria-haspopup="dialog" aria-controls="art-lightbox" aria-describedby="drawing-instructions"><span class="drawing-surface" style="--drawing-ratio:658/1100"><img class="drawing-negative" src="assets/art/jinete-paper.webp" width="658" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"><img class="drawing-original" src="assets/art/jinete-paper.webp" width="658" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span class="drawing-view">Ver original <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg></span></button>
+          <figcaption><span class="drawing-index">04 / 09</span><h3 class="drawing-title">Jinete</h3><p class="drawing-caption">Un estudio de gesto y movimiento entre el caballo y su jinete.</p></figcaption>
+        </figure>
+        <figure class="drawing-entry" data-drawing-work="el-sombrero">
+          <button type="button" class="drawing-open" data-drawing="4" data-art-src="assets/art/el-sombrero-original.webp" data-art-title="El sombrero" data-art-alt="Retrato de una figura con sombrero de copa, chaqueta y una mano junto al ala." data-art-caption="Retrato, vestuario y expresión en un estudio sobre papel texturizado." aria-label="Ver dibujo original: El sombrero" aria-haspopup="dialog" aria-controls="art-lightbox" aria-describedby="drawing-instructions"><span class="drawing-surface" style="--drawing-ratio:716/1100"><img class="drawing-negative" src="assets/art/el-sombrero-paper.webp" width="716" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"><img class="drawing-original" src="assets/art/el-sombrero-paper.webp" width="716" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span class="drawing-view">Ver original <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg></span></button>
+          <figcaption><span class="drawing-index">05 / 09</span><h3 class="drawing-title">El sombrero</h3><p class="drawing-caption">Retrato, vestuario y expresión en un estudio sobre papel texturizado.</p></figcaption>
+        </figure>
+        <figure class="drawing-entry" data-drawing-work="perfil-y-silencio">
+          <button type="button" class="drawing-open" data-drawing="5" data-art-src="assets/art/perfil-y-silencio-original.webp" data-art-title="Perfil y silencio" data-art-alt="Retrato de perfil de una persona con el cabello recogido sobre una hoja de cuaderno." data-art-caption="Cabello recogido, mirada de perfil y sombras suaves." aria-label="Ver dibujo original: Perfil y silencio" aria-haspopup="dialog" aria-controls="art-lightbox" aria-describedby="drawing-instructions"><span class="drawing-surface" style="--drawing-ratio:681/1100"><img class="drawing-negative" src="assets/art/perfil-y-silencio-paper.webp" width="681" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"><img class="drawing-original" src="assets/art/perfil-y-silencio-paper.webp" width="681" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span class="drawing-view">Ver original <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg></span></button>
+          <figcaption><span class="drawing-index">06 / 09</span><h3 class="drawing-title">Perfil y silencio</h3><p class="drawing-caption">Cabello recogido, mirada de perfil y sombras suaves.</p></figcaption>
+        </figure>
+        <figure class="drawing-entry" data-drawing-work="estudio-de-rostro">
+          <button type="button" class="drawing-open" data-drawing="6" data-art-src="assets/art/estudio-de-rostro-original.webp" data-art-title="Estudio de rostro" data-art-alt="Estudio de un rostro con la cabeza ligeramente girada, dibujado sobre una hoja rayada." data-art-caption="Un estudio de estructura, luz y sombra en el rostro." aria-label="Ver dibujo original: Estudio de rostro" aria-haspopup="dialog" aria-controls="art-lightbox" aria-describedby="drawing-instructions"><span class="drawing-surface" style="--drawing-ratio:781/1100"><img class="drawing-negative" src="assets/art/estudio-de-rostro-paper.webp" width="781" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"><img class="drawing-original" src="assets/art/estudio-de-rostro-paper.webp" width="781" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span class="drawing-view">Ver original <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg></span></button>
+          <figcaption><span class="drawing-index">07 / 09</span><h3 class="drawing-title">Estudio de rostro</h3><p class="drawing-caption">Un estudio de estructura, luz y sombra en el rostro.</p></figcaption>
+        </figure>
+        <figure class="drawing-entry" data-drawing-work="mirada-lateral">
+          <button type="button" class="drawing-open" data-drawing="7" data-art-src="assets/art/mirada-lateral-original.webp" data-art-title="Mirada lateral" data-art-alt="Retrato de perfil de una persona de cabello oscuro dibujado en una hoja de notas." data-art-caption="Líneas de perfil y masas de sombra sobre una página de notas." aria-label="Ver dibujo original: Mirada lateral" aria-haspopup="dialog" aria-controls="art-lightbox" aria-describedby="drawing-instructions"><span class="drawing-surface" style="--drawing-ratio:779/1100"><img class="drawing-negative" src="assets/art/mirada-lateral-paper.webp" width="779" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"><img class="drawing-original" src="assets/art/mirada-lateral-paper.webp" width="779" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span class="drawing-view">Ver original <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg></span></button>
+          <figcaption><span class="drawing-index">08 / 09</span><h3 class="drawing-title">Mirada lateral</h3><p class="drawing-caption">Líneas de perfil y masas de sombra sobre una página de notas.</p></figcaption>
+        </figure>
+        <figure class="drawing-entry" data-drawing-work="primeros-suenos">
+          <button type="button" class="drawing-open" data-drawing="8" data-art-src="assets/art/primeros-suenos-original.webp" data-art-title="Primeros sueños" data-art-alt="Dibujo en color de un bebé dormido con gorro blanco, abrigo verde y pantalones azules." data-art-caption="Un retrato en color: prendas, pequeños detalles y una expresión dormida." aria-label="Ver dibujo original: Primeros sueños" aria-haspopup="dialog" aria-controls="art-lightbox" aria-describedby="drawing-instructions"><span class="drawing-surface" style="--drawing-ratio:738/1100"><img class="drawing-negative" src="assets/art/primeros-suenos-paper.webp" width="738" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"><img class="drawing-original" src="assets/art/primeros-suenos-paper.webp" width="738" height="1100" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span class="drawing-view">Ver original <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg></span></button>
+          <figcaption><span class="drawing-index">09 / 09</span><h3 class="drawing-title">Primeros sueños</h3><p class="drawing-caption">Un retrato en color: prendas, pequeños detalles y una expresión dormida.</p></figcaption>
+        </figure>
+      </div>
+      <div class="art-archive-footer"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 1v38M1 20h38M10 10l20 20m0-20L10 30M20 7l4 9 9 4-9 4-4 9-4-9-9-4 9-4Z" fill="none" stroke="currentColor" stroke-width=".7"/></svg><p>De mis cuadernos a este espacio.<br>Los trazos, el papel y sus marcas también cuentan mi historia.</p><span>FIN DEL ARCHIVO / 09</span></div>
+      <div class="art-practices">
+        <article class="art-practice reveal"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="m21 4 7 7-13 13-7-7L21 4Z"/><path d="M8 17c-4 1-5 4-4 10 6 1 9 0 10-4M5 26l5-5M18 7l7 7"/></svg><div><span class="art-practice-index">01 / MATERIA</span><h3>Pintura al óleo</h3><p>Color, textura y el tiempo de observar una imagen antes de dar la siguiente pincelada.</p></div></article>
+        <article class="art-practice reveal"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M5 7h22v18H5zM5 12h22M12 12v13"/><circle cx="9" cy="9.5" r=".7"/><path d="m17 20 3-5 4 7h-9l2-2Z"/></svg><div><span class="art-practice-index">02 / COMPOSICIÓN</span><h3>Diseño gráfico</h3><p>Tipografía, jerarquía y equilibrio para que una idea se entienda también desde lo visual.</p></div></article>
+        <article class="art-practice reveal"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M6 5h20v17H6zM11 27h10M16 22v5M11 14l3 3 7-7"/><path d="M3 9V3h6M23 3h6v6"/></svg><div><span class="art-practice-index">03 / PANTALLA</span><h3>Diseño digital</h3><p>Llevar esa mirada a interfaces y piezas digitales donde la forma y la interacción se acompañan.</p></div></article>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="about section-pad" aria-labelledby="about-title">
+      <div class="about-mark reveal" aria-hidden="true"><div class="about-orbit"></div><img class="about-emblem" src="assets/logo-21.svg" alt="" width="240" height="260"><svg class="about-star"><use href="#star"/></svg><p>SIEMPRE EN CONSTRUCCIÓN</p></div>
+      <div class="about-copy"><p class="eyebrow section-index reveal">04 / DETRÁS DE LA PANTALLA</p><h2 id="about-title" class="reveal">Un poco de lógica.<br>Un poco de <em>instinto.</em></h2><p class="about-lead reveal">Soy Juanpablo, estudiante de último año de Ingeniería de Software, con una mirada que también viene del arte, la pintura y el diseño.</p><p class="about-text reveal">Trabajo entre el desarrollo web, las aplicaciones y los cuadernos de Python. En mi GitHub conviven proyectos personales, ejercicios de aprendizaje y trabajos universitarios, algunos desarrollados en equipo.</p><p class="about-text reveal">Mi recorrido une ocho años de formación artística, pintura al óleo y diseño gráfico y digital con el desarrollo de software. También edito video y sigo explorando cómo una idea puede convertirse en una imagen, una interfaz o una experiencia.</p><div class="about-signature reveal"><span>Juanpablo.</span><p>MENTE TÉCNICA.<br>ESPÍRITU INQUIETO.</p></div></div>
+    </section>
+
+<section id="contacto" class="contact section-pad" aria-labelledby="contact-title"><div class="contact-orbit" aria-hidden="true"></div><p class="eyebrow reveal"><span class="red-diamond"></span> LAS BUENAS IDEAS EMPIEZAN CON UN HOLA</p><h2 id="contact-title" class="reveal">Hagamos algo<br><em>fuera de lo común.</em></h2><button class="button button-light magnetic reveal" data-contact>Cuéntame tu idea <span class="button-icon"><svg><use href="#arrow"/></svg></span></button><a class="contact-email reveal" href="mailto:juannnnpaaaabloooo@gmail.com">juannnnpaaaabloooo@gmail.com <svg><use href="#arrow"/></svg></a><div class="contact-profile"><a class="github-profile-link" href="https://github.com/own21m" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg>Ver mi código en GitHub</a></div><span class="contact-spark" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-spark"/></svg></span></section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#inicio"><img class="footer-symbol" src="assets/logo-21.svg" alt="" width="32" height="36">Juanpablo<span><svg class="icon icon-legal" aria-hidden="true" focusable="false"><use href="#icon-copyright"/></svg> <span id="year">2026</span></span></a><p>HECHO CON CÓDIGO, CAFÉ Y UN POCO DE CAOS.</p><a class="back-top" href="#inicio">VOLVER ARRIBA <span><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-up"/></svg></span></a></footer>
+
+  <dialog id="project-dialog" class="project-dialog"><button class="dialog-close" data-close-dialog aria-label="Cerrar proyecto"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button><div id="project-dialog-content"></div></dialog>
+  <dialog id="project-lightbox" class="project-lightbox" aria-labelledby="lightbox-title">
+    <header class="lightbox-header"><p id="lightbox-title">Vista ampliada</p><span id="lightbox-count" role="status" aria-live="polite"></span><button type="button" class="lightbox-close" data-close-dialog aria-label="Cerrar imagen"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button></header>
+    <div class="lightbox-toolbar"><button type="button" class="case-prev" data-lightbox-nav="-1" aria-label="Imagen anterior"><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button><button type="button" id="lightbox-zoom" aria-pressed="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg><span id="lightbox-zoom-label">Tamaño real</span></button><button type="button" class="case-next" data-lightbox-nav="1" aria-label="Imagen siguiente"><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button></div>
+    <div class="lightbox-scroller" tabindex="0" aria-label="Imagen ampliada, desplazable a tamaño real"><img id="lightbox-image" alt="" decoding="async"></div><p id="lightbox-caption"></p>
+  </dialog>
+
+  <dialog id="contact-dialog" class="contact-dialog"><button class="dialog-close" data-close-dialog aria-label="Cerrar contacto"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button><p class="eyebrow section-index">EL SIGUIENTE PASO</p><h2>Todo empieza<br>con una <em>idea.</em></h2><p class="dialog-intro">Cuéntame qué tienes en mente. Prepararemos el mensaje en tu aplicación de correo.</p><form id="contact-form"><label>Tu nombre<input name="name" autocomplete="name" placeholder="¿Cómo te llamas?" maxlength="100" required></label><label>Tu correo<input type="email" name="email" autocomplete="email" placeholder="hola@tu-correo.com" maxlength="254" required></label><label>Tu idea<textarea name="message" rows="3" placeholder="Una web, un video, algo que todavía no tiene nombre…" minlength="10" maxlength="3000" required></textarea></label><button class="button button-light magnetic" type="submit">Preparar correo <span class="button-icon"><svg><use href="#arrow"/></svg></span></button><p id="contact-status" role="status"></p></form><a class="dialog-direct" href="mailto:juannnnpaaaabloooo@gmail.com">O escríbeme directamente <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a></dialog>
+  <dialog id="robot-gallery" class="robot-gallery" aria-labelledby="robot-gallery-title">
+    <header class="robot-gallery-header"><div><p>ARCHIVO / MONTAJE REAL</p><h2 id="robot-gallery-title">Detrás del movimiento.</h2></div><button type="button" id="robot-gallery-close" aria-label="Cerrar galería"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button></header>
+    <div class="robot-video-stage"><video id="robot-gallery-video" controls playsinline preload="none" aria-label="Video del montaje del brazo robótico"></video></div>
+    <div class="robot-video-description"><p id="robot-gallery-caption">Tres registros originales de mi montaje.</p><span id="robot-gallery-count" role="status" aria-live="polite">01 / 03</span></div>
+    <div class="robot-video-options" role="group" aria-label="Elegir video del montaje">
+      <button type="button" data-robot-video="0" data-video-src="assets/robotics/montaje-01.mp4" data-video-title="El montaje en movimiento" data-video-caption="El brazo real cambia de posición y recorre distintas aperturas y extensiones. Una vista cercana de su estructura, servos y pinza." aria-pressed="true"><span>01</span><span>El montaje en movimiento</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 10 7-10 7Z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      <button type="button" data-robot-video="1" data-video-src="assets/robotics/montaje-02.mp4" data-video-title="Del portátil al brazo" data-video-caption="Una prueba del brazo sobre el escritorio, conectado al portátil por USB. Se ven las articulaciones, el cableado y el movimiento de la pinza." aria-pressed="false"><span>02</span><span>Del portátil al brazo</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 10 7-10 7Z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      <button type="button" data-robot-video="2" data-video-src="assets/robotics/montaje-03.mp4" data-video-title="La mano como entrada" data-video-caption="La pantalla muestra la detección de la mano y sus puntos de referencia: el gesto que interpreta el programa." aria-pressed="false"><span>03</span><span>La mano como entrada</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 10 7-10 7Z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+    </div>
+    <p class="robot-gallery-note">Videos originales del proceso de construcción y prueba.</p>
+  </dialog>
+  <dialog id="art-lightbox" class="art-lightbox" aria-labelledby="art-lightbox-title">
+    <header class="art-lightbox-header"><div><p>ARCHIVO PERSONAL / DIBUJO ORIGINAL</p><h2 id="art-lightbox-title">Mis dibujos</h2></div><button type="button" id="art-lightbox-close" aria-label="Cerrar dibujo"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button></header>
+    <div class="art-lightbox-toolbar"><button type="button" id="art-lightbox-prev" aria-label="Dibujo anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H4m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span id="art-lightbox-count" role="status" aria-live="polite">01 / 09</span><button type="button" id="art-lightbox-next" aria-label="Dibujo siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" id="art-lightbox-zoom" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-enlarge"/></svg><span>Tamaño real</span></button></div>
+    <div class="art-lightbox-scroller" tabindex="0" aria-label="Dibujo original, desplazable a tamaño real"><img id="art-lightbox-image" alt="" decoding="async"></div>
+    <p id="art-lightbox-caption"></p>
+  </dialog>
+</body>
+</html>
