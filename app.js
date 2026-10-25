@@ -968,8 +968,9 @@
       const name = String(data.get('name') || '').trim();
       const email = String(data.get('email') || '').trim();
       const message = String(data.get('message') || '').trim();
-      const subject = `Hablemos de un proyecto${name ? ` — ${name}` : ''}`;
-      const body = `Hola, Juanpablo.\n\n${message}\n\nNombre: ${name}\nCorreo de contacto: ${email}`;
+      const translateMail = value => window.portfolioI18n ? window.portfolioI18n.t(value) : value;
+      const subject = `${translateMail('Hablemos de un proyecto')}${name ? ` — ${name}` : ''}`;
+      const body = `${translateMail('Hola, Juanpablo.')}\n\n${message}\n\n${translateMail('Nombre:')} ${name}\n${translateMail('Correo de contacto:')} ${email}`;
       showContactStatus(`Tu aplicación de correo abrirá la consulta. Si no se abre, escribe a ${contactEmail}.`);
       window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });

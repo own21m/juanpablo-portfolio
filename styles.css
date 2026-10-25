@@ -1329,6 +1329,38 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,t
 }
 
 /* One vector icon system, including symbols that iOS can otherwise render as emoji. */
+.site-header { padding-inline:max(10px,env(safe-area-inset-left),env(safe-area-inset-right)); }
+.header-actions { max-width:100%; }
+.language-toggle { display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:44px;padding:10px 13px;border-radius:28px;background:transparent;color:var(--fg);font-size:10px;line-height:1;white-space:nowrap;transition:background .25s,box-shadow .25s; }
+.language-toggle [data-language-code] { opacity:.45;transition:opacity .2s; }
+:root:lang(es) .language-toggle [data-language-code="es"],:root:lang(en) .language-toggle [data-language-code="en"] { opacity:1;font-weight:700; }
+.language-divider { opacity:.3; }
+.language-toggle:is(:hover,:focus-visible) { background:#ffffff12;box-shadow:0 0 24px #ffffff1c; }
+.header-contact { display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;margin-left:3px;padding:11px 18px;border:1px solid var(--fg);border-radius:28px;font-size:11px;line-height:1.25;white-space:nowrap;transition:box-shadow .25s,transform .25s; }
+:root .site-header .header-actions .header-contact { background:var(--fg);color:var(--bg); }
+.header-contact .icon { width:14px;height:14px; }
+:root .site-header .header-actions .header-contact:is(:hover,:focus-visible) { background:var(--fg);color:var(--bg);box-shadow:0 0 24px #ffffff70;transform:translateY(-1px); }
+.header-contact:focus-visible { outline:2px solid var(--fg);outline-offset:3px; }
+#mobile-nav .language-picker { position:relative;z-index:1;min-width:0;margin:0 0 16px;padding:0;border:0; }
+.language-picker legend { margin-bottom:11px;color:var(--muted);font-size:10px; }
+.language-options { display:flex;gap:8px; }
+.language-options label { position:relative;display:flex;flex:1;min-width:0; }
+.language-options input { position:absolute;opacity:0;width:1px;height:1px; }
+.language-options span { display:block;width:100%;min-height:44px;padding:13px 16px;border:1px solid var(--line);border-radius:24px;font-size:11px;text-align:center;transition:border-color .2s,background .2s,color .2s; }
+.language-options input:checked+span { border-color:var(--fg);background:var(--fg);color:var(--bg); }
+.language-options input:focus-visible+span { outline:2px solid var(--fg);outline-offset:3px; }
+@media(max-width:620px) {
+  .header-actions .motion-toggle { flex:none;width:40px;min-height:44px;padding:10px; }
+  .header-actions .motion-label { display:none; }
+  .header-actions .language-toggle { padding-inline:10px;gap:4px; }
+  .header-actions .menu-toggle { min-height:44px;padding-inline:12px;gap:8px; }
+  .header-actions .header-contact { padding-inline:13px;font-size:10px;gap:6px; }
+}
+@media(max-width:350px) {
+  .header-actions .language-toggle { padding-inline:8px; }
+  .header-actions .menu-toggle { padding-inline:9px;gap:6px; }
+  .header-actions .header-contact { padding-inline:10px; }
+}
 .icon { display: inline-block; flex: none; width: 18px; height: 18px; vertical-align: middle; }
 .icon-legal { width: 1em; height: 1em; vertical-align: -.12em; }
 .thin-cross > .icon, .film-play > .icon, .orbit-core > .icon, .contact-spark > .icon {

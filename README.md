@@ -15,6 +15,7 @@ Abre `index.html` en un navegador. Las fuentes, imágenes, videos y modelos func
 - `index.html`: contenido y diálogos.
 - `styles.css` y `fonts.css`: diseño, temas y animaciones.
 - `app.js` y `projects.js`: navegación, portada y fichas de proyectos.
+- `i18n.js` y `translations.js`: español e inglés, con preferencia local y traducciones sin conexión.
 - `art-gallery.js`: dibujos, revelación, zoom y transiciones.
 - `robot-arm.js` y `robot-gallery.js`: plano 3D interactivo y videos.
 - `assets/`: recursos locales y licencias de fuentes e iconos.
@@ -39,5 +40,7 @@ Las actualizaciones del repositorio pueden desplegarse mediante la integración 
 ## Contenido y movimiento
 
 El control superior pausa las animaciones y el sitio respeta la preferencia de movimiento reducido. El tema sigue el sistema por defecto y puede cambiarse desde el menú. Los videos se cargan al abrir su galería y no se reproducen automáticamente. El formulario prepara un mensaje de correo para que lo envíes desde tu aplicación.
+
+La barra superior conserva un botón de contacto que abre directamente el formulario. El idioma es español por defecto; se puede cambiar entre español e inglés con ES/EN o desde el menú. La elección se guarda en el navegador y también se traducen las fichas, visores, etiquetas accesibles y el correo preparado, conservando los textos introducidos por el visitante.
 
 Los dibujos y videos forman parte de mi archivo personal. La inversión de los dibujos es un efecto de presentación: el visor conserva las fotografías en su color original. Las fuentes e iconos conservan las licencias incluidas en `assets/`.

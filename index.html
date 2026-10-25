@@ -37,9 +37,11 @@
 })();
   </script>
   <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="styles.css?v=recepy-astra-1">
+  <link rel="stylesheet" href="styles.css?v=idiomas-contacto-1">
   <script src="projects.js?v=recepy-astra-1" defer></script>
-  <script src="app.js?v=trazos-1" defer></script>
+  <script src="translations.js?v=idiomas-contacto-1" defer></script>
+  <script src="i18n.js?v=idiomas-contacto-1" defer></script>
+  <script src="app.js?v=idiomas-contacto-1" defer></script>
   <script src="robot-arm.js?v=robotica-plano-2" defer></script>
   <script src="robot-gallery.js?v=robotica-plano-2" defer></script>
   <script src="art-gallery.js?v=trazos-movimiento-2" defer></script>
@@ -65,7 +67,7 @@
   </defs></svg>
 
   <header class="site-header">
-    <div class="header-actions"><button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false"><svg class="motion-bars" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5v10"/><path d="M7.5 2v16"/><path d="M12 7v6"/><path d="M16.5 4v12"/></svg><span class="motion-label">Pausar animaciones</span></button><button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú" aria-haspopup="dialog"><span>Menú</span><svg class="menu-icon" aria-hidden="true" focusable="false"><use class="menu-icon-open" href="#icon-menu"/><use class="menu-icon-close" href="#icon-close"/></svg></button></div>
+    <div class="header-actions"><button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false"><svg class="motion-bars" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5v10"/><path d="M7.5 2v16"/><path d="M12 7v6"/><path d="M16.5 4v12"/></svg><span class="motion-label">Pausar animaciones</span></button><button id="language-toggle" class="language-toggle" type="button" aria-label="Cambiar a inglés"><span data-language-code="es" aria-hidden="true">ES</span><span class="language-divider" aria-hidden="true">/</span><span data-language-code="en" aria-hidden="true">EN</span></button><button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú" aria-haspopup="dialog"><span>Menú</span><svg class="menu-icon" aria-hidden="true" focusable="false"><use class="menu-icon-open" href="#icon-menu"/><use class="menu-icon-close" href="#icon-close"/></svg></button><button id="header-contact" class="header-contact" type="button" data-contact aria-haspopup="dialog" aria-controls="contact-dialog"><span>Contáctame</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button></div>
   </header>
   <dialog id="mobile-nav" class="mobile-nav" aria-labelledby="mobile-nav-title">
     <div class="mobile-nav-top"><span id="mobile-nav-title">Navegación</span><button id="menu-close" type="button" aria-label="Cerrar menú">Cerrar <span aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></span></button></div>
@@ -75,7 +77,7 @@
       <a href="#enfoque"><span class="mobile-nav-number">03</span><span>Enfoque</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
       <a href="#arte"><span class="mobile-nav-number">04</span><span>Arte</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
       <a href="#sobre-mi"><span class="mobile-nav-number">05</span><span>Sobre mí</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
-      <a href="#contacto"><span class="mobile-nav-number">06</span><span>Hablemos</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      <a href="#contacto" data-contact><span class="mobile-nav-number">06</span><span>Contáctame</span><svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
     </nav>
     <fieldset id="theme-picker" class="theme-picker">
       <legend>Tema</legend>
@@ -86,6 +88,11 @@
       </div>
     </fieldset>
     <p id="theme-status" class="theme-status" role="status" aria-live="polite">Siguiendo el sistema</p>
+    <fieldset id="language-picker" class="language-picker">
+      <legend>Idioma</legend>
+      <div class="language-options"><label><input type="radio" name="language" value="es" checked><span lang="es" translate="no">Español</span></label><label><input type="radio" name="language" value="en"><span lang="en" translate="no">English</span></label></div>
+    </fieldset>
+    <p id="language-status" class="sr-only" role="status" aria-live="polite"></p>
     <p class="mobile-nav-note">JUANPABLO / CÓDIGO & VISIÓN</p>
     <span class="mobile-nav-glow" aria-hidden="true"></span>
   </dialog>
