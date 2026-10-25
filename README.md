@@ -1,5 +1,7 @@
 # Juanpablo — Código & Visión
 
+<img width="834" height="735" alt="image" src="https://github.com/user-attachments/assets/0a87f0f5-fcf9-49d0-aba4-6b9d0cd1b701" />
+
 Mi portfolio personal: ingeniería de software, arte, interfaces y visión por computador, con una estética gótica contemporánea.
 
 Sitio estático en HTML, CSS, JavaScript y WebGL. Incluye 21 proyectos, nueve dibujos con revelación del original, un brazo robótico 3D articulado y una galería de tres videos del montaje.
